@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Double Scrub</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+
+    <!-- Style Section -->
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f6f4;
+            color: #333;
+        }
+
+        /* Header & Logo Styling */
+        header {
+            padding: 20px;
+            text-align: center;
+        }
+        img.logo {
+            width: 150px;
+        }
+
+        /* Navigation Styling */
+        nav {
+            background-color: #fff;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+            position: relative;
+        }
+        nav a {
+            color: #333;
+            margin: 0 20px;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+
+        /* Contact Icons Styling */
+        .contact-icons {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .contact-icons img {
+            width: 30px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        /* Product Details Section */
+        .product-details {
+            width: 80%;
+            margin: 40px auto;
+            position: relative;
+            text-align: center;
+        }
+
+        /* Product Images */
+        .product-images {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+        }
+        .product-images .slides {
+            display: flex;
+           transition: transform 0.5s ease-in-out;
+            width: 400%;
+        }
+        .product-images .slides img {
+            width: 100vw;
+            height: auto;
+            display: block;
+        }
+
+        /* Arrows for Image Slider */
+        .product-images .arrows {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .product-images .arrows div {
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 20px;
+            cursor: pointer;
+        }
+
+        /* Description, Price & Sizes */
+        .description {
+            margin-top: 20px;
+            font-size: 1.2em;
+        }
+        .price {
+            font-size: 1.5em;
+            color: #e5bfbf;
+        }
+
+        /* Centered Selection Box */
+        .selection-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 40px;
+        }
+        .selection-box label {
+            font-weight: bold;
+        }
+
+        /* Color Box */
+        .color-box {
+            display: inline-block;
+            width: 60px;
+            padding: 5px;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Size Buttons Styling */
+        .size-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .size-button {
+            display: inline-block;
+            padding: 15px;
+            background-color: #f9f6f4; /* Beige default */
+            color: #333;
+            border: 1px solid #e5bfbf;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .size-button.selected {
+            background-color: #e5bfbf; /* Pink when selected */
+            color: white;
+            border-color: #e5bfbf;
+        }
+
+        /* Add to Cart Button */
+        .add-to-cart {
+            margin-top: 20px;
+        }
+        .add-to-cart button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #e5bfbf;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        .add-to-cart button.success {
+            /*background-color: #f5b3b3;*/
+            background-color: #f9f6f4; /* Beige default */
+            color: #333;
+            border: 1px solid #e5bfbf;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Back Arrow */
+        .back-arrow {
+            position: absolute;
+            top: 20px;
+            left: 10px;
+            cursor: pointer;
+        }
+
+        /* Bigger Notes Box */
+        #notes {
+            width: 90%;
+            height: 100px; /* Increased height */
+            padding: 10px;
+            border: 1px solid #e5e5e5;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1em;
+            resize: none; /* Disables manual resizing */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="./images/logo.jpg" alt="Your Store Logo" class="logo">
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="scrubs.html">Scrubs</a>
+        <!-- <a href="accessories.html">Accessories</a> -->
+        <a href="checkout.html">Checkout</a>
+        <div class="contact-icons">
+            <a href="https://www.instagram.com/scrubologykw" target="_blank"><img src="./images/instragram-logo.jpg" alt="Instagram"></a>
+            <a href="https://wa.me/98969785" target="_blank"><img src="./images/whatsapp-logo.jpg" alt="WhatsApp"></a>
+        </div>
+    </nav>
+
+    <div class="product-details">
+        <!-- Product Image Slider -->
+        <div class="product-images">
+            <div class="slides">
+                <img src="scrub4-image1.jpg" alt="Scrub 4 Image 1">
+                <img src="scrub4-image2.jpg" alt="Scrub 4 Image 2">
+                <img src="scrub4-image3.jpg" alt="Scrub 4 Image 3">
+                <img src="scrub4-image4.jpg" alt="Scrub 4 Image 4">
+            </div>
+            <div class="arrows">
+                <div id="prev">❮</div>
+                <div id="next">❯</div>
+            </div>
+        </div>
+
+        <!-- Product Details -->
+        <div class="description">
+            <h1>H7</h1>
+            <p>choose the color from last iamge </p>
+            <p>choose the size probaply</p>
+            <p class="price">21.900 KD</p>
+        </div>
+
+        <!-- Selection Box for Color, Top & Pants Sizes, and Notes -->
+        <div class="selection-box">
+            <!-- Select Scrub Color -->
+            <label for="color-select">Select Scrub Color (1-30):</label>
+            <input type="text" id="color-select" class="color-box" placeholder="Enter number">
+
+            <!-- Select Top Size -->
+            <label>Select Top Size:</label>
+            <div class="size-buttons" id="top-size">
+                <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
+                <button class="size-button" onclick="selectSize('S', 'top')">S</button>
+                <button class="size-button" onclick="selectSize('M', 'top')">M</button>
+                <button class="size-button" onclick="selectSize('L', 'top')">L</button>
+                <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
+            </div>
+
+            <!-- Select Pants Size -->
+            <label>Select Pants Size:</label>
+            <div class="size-buttons" id="pants-size">
+                <button class="size-button" onclick="selectSize('XS', 'pants')">XS</button>
+                <button class="size-button" onclick="selectSize('S', 'pants')">S</button>
+                <button class="size-button" onclick="selectSize('M', 'pants')">M</button>
+                <button class="size-button" onclick="selectSize('L', 'pants')">L</button>
+                <button class="size-button" onclick="selectSize('XL', 'pants')">XL</button>
+            </div>
+
+            <!-- Notes -->
+            <label for="notes">Notes (optional):</label>
+            <textarea id="notes" placeholder="Add name, Add chest or sleeve pocket, Add ID holder, Long sleeves....... "></textarea>
+        </div>
+
+        <!-- Add to Cart Button -->
+        <div class="add-to-cart">
+            <button id="cart-button" onclick="addToCart()">Add to Cart</button>
+        </div>
+
+        <!-- Back Arrow -->
+        <div class="back-arrow" onclick="window.history.back();">←</div>
+    </div>
+
+    <!-- Script Section -->
+    <script>
+        let slideIndex = 0;
+        const totalSlides = document.querySelectorAll('.product-images .slides img').length;
+
+        function showSlide(index) {
+            const offset = index * -100;
+            document.querySelector('.product-images .slides').style.transform = `translateX(${offset}%)`;
+        }
+
+        document.getElementById('prev').addEventListener('click', () => {
+            slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+            showSlide(slideIndex);
+        });
+
+        document.getElementById('next').addEventListener('click', () => {
+            slideIndex = (slideIndex + 1) % totalSlides;
+            showSlide(slideIndex);
+        });
+
+        function addToCart() {
+            const color = document.getElementById('color-select').value;
+            const topSize = document.querySelector('#top-size .selected').textContent;
+            const pantsSize = document.querySelector('#pants-size .selected').textContent;
+            const notes = document.getElementById('notes').value;
+
+            if (!color || !topSize || !pantsSize) {
+                alert('Please select all options.');
+                return;
+            }
+            let product = {
+                product_name: 'H7',
+                color: color,
+                top_size: topSize,
+                pants_size: pantsSize,
+                notes: notes,
+                total_price: 21.900
+            };
+
+            // Save the product to the cart (example for localStorage)
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Change button text to "Added Successfully" and revert back
+            const button = document.getElementById('cart-button');
+            button.textContent = 'Added Successfully!';
+            button.classList.add('success');
+            
+            setTimeout(() => {
+                button.textContent = 'Add to Cart';
+                button.classList.remove('success');
+            }, 3000); // 4 seconds
+        }
+
+        function selectSize(size, type) {
+            document.querySelector(`#${type}-size .size-button.selected`)?.classList.remove('selected');
+            document.querySelector(`#${type}-size .size-button[onclick*="${size}"]`).classList.add('selected');
+        }
+    </script>
+</body>
+</html>

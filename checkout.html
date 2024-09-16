@@ -142,7 +142,7 @@
             let items = cartData.map(item => `Product: ${item.product_name}\nColor: ${item.color}\nTop Size: ${item.top_size}\nPants Size: ${item.pants_size}\nNotes: ${item.notes}\nPrice: ${item.total_price}`).join('\n\n');
             let message = `Order Summary:\n\n${items}\n\nName: ${name}\nAddress: ${address}\nPayment Method: ${paymentMethod}\nTotal: ${total}`;
 
-            let whatsappLink = `https://wa.me/98969785?text=${encodeURIComponent(message)}`;
+            let whatsappLink = `https://wa.me/55334159?text=${encodeURIComponent(message)}`;
             window.open(whatsappLink, '_blank');
         }
 

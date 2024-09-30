@@ -9,192 +9,181 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
     <!-- Style Section -->
-    <style>
-        body {
-            font-family: 'Playfair Display', serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f9f6f4;
-            color: #333;
-        }
+    <style> body {
+        font-family: 'Playfair Display', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f6f4;
+        color: #333;
+    }
 
-        /* Header & Logo Styling */
-        header {
-            padding: 20px;
-            text-align: center;
-        }
-        img.logo {
-            width: 150px;
-        }
+    /* Header & Logo Styling */
+    header {
+        padding: 20px;
+        text-align: center;
+    }
+    img.logo {
+        width: 150px;
+    }
 
-        /* Navigation Styling */
-        nav {
-            background-color: #fff;
-            padding: 15px;
-            text-align: center;
-            border-bottom: 1px solid #e5e5e5;
-            position: relative;
-        }
-        nav a {
-            color: #333;
-            margin: 0 20px;
-            font-size: 1.2em;
-            text-decoration: none;
-        }
+    /* Navigation Styling */
+    nav {
+        background-color: #fff;
+        padding: 15px;
+        text-align: center;
+        border-bottom: 1px solid #e5e5e5;
+        position: relative;
+    }
+    nav a {
+        color: #333;
+        margin: 0 20px;
+        font-size: 1.2em;
+        text-decoration: none;
+    }
 
-        /* Contact Icons Styling */
-        .contact-icons {
-            position: absolute;
-            right: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .contact-icons img {
-            width: 30px;
-            margin-left: 10px;
-            cursor: pointer;
-        }
+    /* Contact Icons Styling */
+    .contact-icons {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    .contact-icons img {
+        width: 30px;
+        margin-left: 10px;
+        cursor: pointer;
+    }
 
-        /* Product Details Section */
-        .product-details {
-            width: 80%;
-            margin: 40px auto;
-            position: relative;
-            text-align: center;
-        }
+    /* Product Details Section */
+    .product-details {
+        width: 100%;
+        margin: 40px auto;
+        position: relative;
+        text-align: center;
+    }
 
-        /* Product Images */
-        .product-images {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-        }
-        .product-images .slides {
-            display: flex;
-           transition: transform 0.5s ease-in-out;
-            width: 400%;
-        }
-        .product-images .slides img {
-            width: 100vw;
-            height: auto;
-            display: block;
-        }
+    /* Product Images */
+    .product-images {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+    .product-images .slides {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: 400%;
+    }
+    .product-images .slides img {
+        width: 100vw;
+        height: auto;
+        display: block;
+    }
 
-        /* Arrows for Image Slider */
-        .product-images .arrows {
-            position: absolute;
-            top: 50%;
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-        }
-        .product-images .arrows div {
-            background: rgba(0, 0, 0, 0.5);
-            color: #fff;
-            padding: 20px;
-            cursor: pointer;
-        }
+    /* Arrows for Image Slider */
+    .product-images .arrows {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    .product-images .arrows div {
+        background: rgba(0, 0, 0, 0.5);
+        color: #fff;
+        padding: 20px;
+        cursor: pointer;
+    }
 
-        /* Description, Price & Sizes */
-        .description {
-            margin-top: 20px;
-            font-size: 1.2em;
-        }
-        .price {
-            font-size: 1.5em;
-            color: #e5bfbf;
-        }
+    /* Description, Price & Sizes */
+    .description {
+        margin-top: 20px;
+        font-size: 1.2em;
+    }
+    .price {
+        font-size: 1.5em;
+        color: #e5bfbf;
+    }
 
-        /* Centered Selection Box */
-        .selection-box {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 40px;
-        }
-        .selection-box label {
-            font-weight: bold;
-        }
+    /* Centered Selection Box */
+    .selection-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 40px;
+    }
+    .selection-box label {
+        font-weight: bold;
+    }
 
-        /* Color Box */
-        .color-box {
-            display: inline-block;
-            width: 60px;
-            padding: 5px;
-            border: 1px solid #e5e5e5;
-            border-radius: 5px;
-            text-align: center;
-            margin-bottom: 20px;
-        }
+    /* Color Box */
+    .color-box {
+        display: inline-block;
+        width: 60px;
+        padding: 5px;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
 
-        /* Size Buttons Styling */
-        .size-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        .size-button {
-            display: inline-block;
-            padding: 15px;
-            background-color: #f9f6f4; /* Beige default */
-            color: #333;
-            border: 1px solid #e5bfbf;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
-        .size-button.selected {
-            background-color: #e5bfbf; /* Pink when selected */
-            color: white;
-            border-color: #e5bfbf;
-        }
+    /* Size Buttons Styling */
+    .size-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    .size-button {
+        display: inline-block;
+        padding: 15px;
+        background-color: #f9f6f4; /* Beige default */
+        color: #333;
+        border: 1px solid #e5bfbf;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: background-color 0.3s ease;
+    }
+    .size-button.selected {
+        background-color: #e5bfbf; /* Pink when selected */
+        color: white;
+        border-color: #e5bfbf;
+    }
 
-        /* Add to Cart Button */
-        .add-to-cart {
-            margin-top: 20px;
-        }
-        .add-to-cart button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #e5bfbf;
-            color: #fff;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1.2em;
-            transition: background-color 0.3s;
-        }
-        .add-to-cart button.success {
-            /*background-color: #f5b3b3;*/
-            background-color: #f9f6f4; /* Beige default */
-            color: #333;
-            border: 1px solid #e5bfbf;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s ease;
-        }
+    /* Add to Cart Button */
+    .add-to-cart {
+        margin-top: 20px;
+    }
+    .add-to-cart button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #e5bfbf;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1.2em;
+        transition: background-color 0.3s;
+    }
 
-        /* Back Arrow */
-        .back-arrow {
-            position: absolute;
-            top: 20px;
-            left: 10px;
-            cursor: pointer;
-        }
+    /* Back Arrow */
+    .back-arrow {
+        position: absolute;
+        top: 20px;
+        left: 10px;
+        cursor: pointer;
+    }
 
-        /* Bigger Notes Box */
-        #notes {
-            width: 90%;
-            height: 100px; /* Increased height */
-            padding: 10px;
-            border: 1px solid #e5e5e5;
-            border-radius: 5px;
-            margin-top: 20px;
-            font-size: 1em;
-            resize: none; /* Disables manual resizing */
-        }
+    /* Bigger Notes Box */
+    #notes {
+        width: 90%;
+        height: 100px; /* Increased height */
+        padding: 10px;
+        border: 1px solid #e5e5e5;
+        border-radius: 5px;
+        margin-top: 20px;
+        font-size: 1em;
+        resize: none; /* Disables manual resizing */
+    }
     </style>
 </head>
 <body>
@@ -217,8 +206,8 @@
         <!-- Product Image Slider -->
         <div class="product-images">
             <div class="slides">
-                <img src="scrub2-image1.jpg" alt="Scrub 2 Image 1">
-                <img src="scrub2-image2.jpg" alt="Scrub 2 Image 2">
+                <img src="./images/scrub1-image1.jpg" alt="Scrub 2 Image 1">
+                <img src="./images/whatsapp-logo.jpg" alt="Scrub 2 Image 2">
                 <img src="scrub2-image3.jpg" alt="Scrub 2 Image 3">
                 <img src="scrub2-image4.jpg" alt="Scrub 2 Image 4">
             </div>
@@ -233,7 +222,7 @@
             <h1>reg</h1>
             <p>choose the color from last iamge </p>
             <p>choose the size probaply</p>
-            <p class="price">17.500 KD</p>
+            <p class="price">18.500 KD</p>
         </div>
 
         <!-- Selection Box for Color, Top & Pants Sizes, and Notes -->
@@ -242,59 +231,74 @@
             <label for="color-select">Select Scrub Color (1-30):</label>
             <input type="text" id="color-select" class="color-box" placeholder="Enter number">
 
-            <!-- Select Top Size -->
-            <label>Select Top Size:</label>
-            <div class="size-buttons" id="top-size">
-                <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
-                <button class="size-button" onclick="selectSize('S', 'top')">S</button>
-                <button class="size-button" onclick="selectSize('M', 'top')">M</button>
-                <button class="size-button" onclick="selectSize('L', 'top')">L</button>
-                <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
-            </div>
+         <!-- Select Top Size -->
+         <label>Select Top Size:</label>
+         <div class="size-buttons" id="top-size">
+             <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
+             <button class="size-button" onclick="selectSize('S', 'top')">S</button>
+             <button class="size-button" onclick="selectSize('M', 'top')">M</button>
+             <button class="size-button" onclick="selectSize('L', 'top')">L</button>
+             <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
+         </div>
 
-            <!-- Select Pants Size -->
-            <label>Select Pants Size:</label>
-            <div class="size-buttons" id="pants-size">
-                <button class="size-button" onclick="selectSize('XS', 'pants')">XS</button>
-                <button class="size-button" onclick="selectSize('S', 'pants')">S</button>
-                <button class="size-button" onclick="selectSize('M', 'pants')">M</button>
-                <button class="size-button" onclick="selectSize('L', 'pants')">L</button>
-                <button class="size-button" onclick="selectSize('XL', 'pants')">XL</button>
-            </div>
+         <!-- Select Pants Size -->
+         <label>Select Pants Size:</label>
+         <div class="size-buttons" id="pants-size">
+             <button class="size-button" onclick="selectSize('XS', 'pants')">XS</button>
+             <button class="size-button" onclick="selectSize('S', 'pants')">S</button>
+             <button class="size-button" onclick="selectSize('M', 'pants')">M</button>
+             <button class="size-button" onclick="selectSize('L', 'pants')">L</button>
+             <button class="size-button" onclick="selectSize('XL', 'pants')">XL</button>
+         </div>
 
-            <!-- Notes -->
-            <label for="notes">Notes (optional):</label>
-            <textarea id="notes" placeholder="Add name, Add chest or sleeve pocket, Add ID holder, Long sleeves....... "></textarea>
-        </div>
+         <!-- Notes -->
+         <label for="notes">Notes (optional):</label>
+         <textarea id="notes" placeholder="Add name, Add chest or sleeve pocket, Add ID holder, Long sleeves....... "></textarea>
+     </div>
 
-        <!-- Add to Cart Button -->
-        <div class="add-to-cart">
-            <button id="cart-button" onclick="addToCart()">Add to Cart</button>
-        </div>
+     <!-- Add to Cart Button -->
+     <div class="add-to-cart">
+         <button id="cart-button" onclick="addToCart()">Add to Cart</button>
+     </div>
 
         <!-- Back Arrow -->
         <div class="back-arrow" onclick="window.history.back();">←</div>
     </div>
 
+   
     <!-- Script Section -->
     <script>
         let slideIndex = 0;
-        const totalSlides = document.querySelectorAll('.product-images .slides img').length;
+        const totalSlides = document.querySelectorAll('.slides img').length;
 
+        // Function to Show Next or Previous Slide
         function showSlide(index) {
-            const offset = index * -100;
-            document.querySelector('.product-images .slides').style.transform = `translateX(${offset}%)`;
+            const slides = document.querySelector('.slides');
+            const slideWidth = document.querySelector('.product-images').clientWidth;
+            slides.style.transform = `translateX(-${index * slideWidth}px)`;
         }
 
-        document.getElementById('prev').addEventListener('click', () => {
-            slideIndex = (slideIndex - 1 + totalSlides) % totalSlides;
+        // Event Listeners for Arrows
+        document.getElementById('prev').addEventListener('click', function() {
+            slideIndex = (slideIndex === 0) ? totalSlides - 1 : slideIndex - 1;
+            showSlide(slideIndex);
+        });
+        document.getElementById('next').addEventListener('click', function() {
+            slideIndex = (slideIndex === totalSlides - 1) ? 0 : slideIndex + 1;
             showSlide(slideIndex);
         });
 
-        document.getElementById('next').addEventListener('click', () => {
-            slideIndex = (slideIndex + 1) % totalSlides;
-            showSlide(slideIndex);
-        });
+        // Function to Select Size (Fixed Issue with S button)
+        function selectSize(size, type) {
+            const sizeButtons = document.querySelectorAll(`#${type}-size .size-button`);
+            sizeButtons.forEach(button => {
+                if (button.innerText === size) {
+                    button.classList.add('selected');
+                } else {
+                    button.classList.remove('selected');
+                }
+            });
+        }
 
         function addToCart() {
             const color = document.getElementById('color-select').value;
@@ -312,7 +316,7 @@
                 top_size: topSize,
                 pants_size: pantsSize,
                 notes: notes,
-                total_price: 17.500
+                total_price: 18.500
             };
 
             // Save the product to the cart (example for localStorage)
@@ -329,11 +333,6 @@
                 button.textContent = 'Add to Cart';
                 button.classList.remove('success');
             }, 3000); // 4 seconds
-        }
-
-        function selectSize(size, type) {
-            document.querySelector(`#${type}-size .size-button.selected`)?.classList.remove('selected');
-            document.querySelector(`#${type}-size .size-button[onclick*="${size}"]`).classList.add('selected');
         }
     </script>
 </body>

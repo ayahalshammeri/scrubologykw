@@ -109,7 +109,9 @@
         }
 
         // Apply discount logic
-        function applyDiscount() {
+        function applyDiscount()
+        
+         {
             const discountCode = document.getElementById('discount-code').value;
             const discountDisplay = document.getElementById('discount-display');
             let totalPrice = parseFloat(document.getElementById('total-price').textContent.replace(' KD', ''));
@@ -117,7 +119,7 @@
             if (discountCode === 'LAUNCH') {
                 totalPrice *= 0.9; // Apply 10% discount
                 discountDisplay.textContent = 'Discount Applied: -10%';
-            } else {
+            }else {
                 discountDisplay.textContent = 'Invalid Discount Code';
             }
 

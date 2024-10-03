@@ -118,7 +118,7 @@
     /* Color Box */
     .color-box {
         display: inline-block;
-        width: 60px;
+        width: 120px;
         padding: 5px;
         border: 1px solid #e5e5e5;
         border-radius: 5px;
@@ -206,10 +206,10 @@
         <!-- Product Image Slider -->
         <div class="product-images">
             <div class="slides">
-                <img src="./images/scrub1-image1.jpg" alt="Scrub 2 Image 1">
-                <img src="./images/whatsapp-logo.jpg" alt="Scrub 2 Image 2">
-                <img src="scrub2-image3.jpg" alt="Scrub 2 Image 3">
-                <img src="scrub2-image4.jpg" alt="Scrub 2 Image 4">
+                <img src="./images/scrub2.jpg" alt="Scrub 2 Image 1">
+                <img src="./images/scrub2-image2.jpg" alt="Scrub 2 Image 2">
+                <!-- <img src="./images/scrub2-image3.jpg" alt="Scrub 2 Image 3">
+                <img src="./images/scrub2-image4.jpg" alt="Scrub 2 Image 4"> -->
             </div>
             <div class="arrows">
                 <div id="prev">❮</div>
@@ -228,8 +228,8 @@
         <!-- Selection Box for Color, Top & Pants Sizes, and Notes -->
         <div class="selection-box">
             <!-- Select Scrub Color -->
-            <label for="color-select">Select Scrub Color (1-30):</label>
-            <input type="text" id="color-select" class="color-box" placeholder="Enter number">
+            <label for="color-select">Select Scrub Color :</label>
+            <input type="text" id="color-select" class="color-box" placeholder="Enter color">
 
          <!-- Select Top Size -->
          <label>Select Top Size:</label>
@@ -312,6 +312,7 @@
             }
             let product = {
                 product_name: 'Basic',
+                image: src="./images/scrub2.jpg",
                 color: color,
                 top_size: topSize,
                 pants_size: pantsSize,

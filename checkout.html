@@ -87,7 +87,7 @@
                     totalPrice += price;
                     const itemHTML = `
                         <div class="summary-item">
-                            <img src="${item.image}" alt="${item.product_name}">
+                            <img src="${item.image}" alt="${item.image}">
                             <div class="details">
                                 <span class="product-name">${item.product_name}</span><br>
                                 <span class="product-color">Color: ${item.color}</span><br>
@@ -96,7 +96,7 @@
                                 <span class="product-notes">Notes: ${item.notes}</span><br>
                                 <span class="product-price">Price: ${price.toFixed(2)} KD</span>
                             </div>
-                            <img src="trash-icon.png" class="delete-icon" onclick="removeItem(${index})" alt="Delete Item">
+                            <img src="./images/deleteicon.jpg" class="delete-icon" onclick="removeItem(${index})" alt="Delete">
                         </div>
                     `;
                     cartContainer.insertAdjacentHTML('beforeend', itemHTML);
@@ -114,7 +114,7 @@
             const discountDisplay = document.getElementById('discount-display');
             let totalPrice = parseFloat(document.getElementById('total-price').textContent.replace(' KD', ''));
 
-            if (discountCode === 'DISCOUNT10') {
+            if (discountCode === 'LAUNCH') {
                 totalPrice *= 0.9; // Apply 10% discount
                 discountDisplay.textContent = 'Discount Applied: -10%';
             } else {

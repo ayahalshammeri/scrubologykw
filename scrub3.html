@@ -56,7 +56,7 @@
 
     /* Product Details Section */
     .product-details {
-        width: 100%;
+        width: 80%;
         margin: 40px auto;
         position: relative;
         text-align: center;
@@ -74,9 +74,8 @@
         width: 400%;
     }
     .product-images .slides img {
-        width: 100vw;
-        height: auto;
-        display: block;
+        width: 25%;
+        overflow: hidden;
     }
 
     /* Arrows for Image Slider */
@@ -220,8 +219,8 @@
         <!-- Product Details -->
         <div class="description">
             <h1>chi</h1>
+            <h4> Elegant scrub with chinese neck and two side pockets<br> straight-legged and comfy pants with two side pockets</h4>
             <p>choose the color from last iamge </p>
-            <p>choose the size probaply</p>
             <p class="price">25.000 KD</p>
         </div>
 
@@ -262,7 +261,7 @@
      </div>
 
         <!-- Back Arrow -->
-        <div class="back-arrow" onclick="window.history.back();">←</div>
+        <div class="back-arrow" onclick="window.history.back();">⬅</div>
     </div>
 
    
@@ -312,7 +311,7 @@
             }
             let product = {
                 product_name: 'chi',
-                image: src="./images/scrub1.jpg",
+                image: src="./images/scrub3.jpg",
                 color: color,
                 top_size: topSize,
                 pants_size: pantsSize,

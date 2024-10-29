@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Double Scrub</title>
+    <title>Scrub</title>
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
@@ -218,10 +218,10 @@
 
         <!-- Product Details -->
         <div class="description">
-            <h1>Basic</h1>
-            <h4>Simple two front pockets <br> straight-legged and comfy pants with two side pockets </h4>
+            <h1>#02</h1>
+            <h4>Simple two front pockets <br> Straight-legged and comfy pants with two side pockets </h4>
             <p>choose the color from last iamge </p>
-            <p class="price">18.500 KD</p>
+            <p class="price">21.500 KD</p>
         </div>
 
         <!-- Selection Box for Color, Top & Pants Sizes, and Notes -->
@@ -258,6 +258,7 @@
      <!-- Add to Cart Button -->
      <div class="add-to-cart">
          <button id="cart-button" onclick="addToCart()">Add to Cart</button>
+         <a href="checkout.html">🛒</a>
      </div>
 
         <!-- Back Arrow -->
@@ -310,13 +311,13 @@
                 return;
             }
             let product = {
-                product_name: 'Basic',
+                product_name: '#02',
                 image: src="./images/scrub2.jpg",
                 color: color,
                 top_size: topSize,
                 pants_size: pantsSize,
                 notes: notes,
-                total_price: 18.500
+                total_price: 21.500
             };
 
             // Save the product to the cart (example for localStorage)

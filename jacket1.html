@@ -7,7 +7,7 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-
+    
     <!-- Style Section -->
     <style> body {
         font-family: 'Playfair Display', serif;
@@ -71,7 +71,7 @@
     .product-images .slides {
         display: flex;
         transition: transform 0.5s ease-in-out;
-        width: 200%;
+        width: 400%;
     }
     .product-images .slides img {
         width: 100%;
@@ -185,7 +185,6 @@
         resize: none; /* Disables manual resizing */
     }
     </style>
-    </style>
 </head>
 <body>
     <header>
@@ -207,10 +206,11 @@
         <!-- Product Image Slider -->
         <div class="product-images">
             <div class="slides">
-                <img src="./images/scrub2.jpg" alt="Scrub 2 Image 1">
-                <img src="./images/scrub2-image2.jpg" alt="Scrub 2 Image 2">
-                <!-- <img src="./images/scrub2-image3.jpg" alt="Scrub 2 Image 3">
-                <img src="./images/scrub2-image4.jpg" alt="Scrub 2 Image 4"> -->
+              <!--   <img src="./images/scrub1.jpg" alt="Scrub 1 Image 1">
+                <img src="./images/scrub1-image2.jpg" alt="Scrub 1 Image 2">
+                <img src="./images/scrub1-image3.jpg" alt="Scrub 1 Image 3">
+                <img src="./images/scrub1-image4.jpg" alt="Scrub 1 Image 4">-->
+                
             </div>
             <div class="arrows">
                 <div id="prev">❮</div>
@@ -220,19 +220,15 @@
 
         <!-- Product Details -->
         <div class="description">
-            <h1>#02</h1>
-            <h4>Simple two front pockets <br> Straight-legged and comfy pants with two side pockets </h4>
-            <p>choose the color from last iamge </p>
-            <p class="price">21.500 KD</p>
+            <h1>J1</h1>
+            <p class="price">14.500 KD</p>
         </div>
 
-        <!-- Selection Box for Color, Top & Pants Sizes, and Notes -->
+        <!-- Selection Box for Color, Top Sizes, and Notes -->
         <div class="selection-box">
             <!-- Select Scrub Color -->
             <label for="color-select">Select Scrub Color :</label>
-            <input type="text" id="color-select" class="color-box" placeholder="Enter color">
-
-         <!-- Select Top Size -->
+     <input type="text" id="color-select" class="color-box" placeholder="Enter color">
          <label>Select Top Size:</label>
          <div class="size-buttons" id="top-size">
              <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
@@ -242,25 +238,16 @@
              <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
          </div>
 
-         <!-- Select Pants Size -->
-         <label>Select Pants Size:</label>
-         <div class="size-buttons" id="pants-size">
-             <button class="size-button" onclick="selectSize('XS', 'pants')">XS</button>
-             <button class="size-button" onclick="selectSize('S', 'pants')">S</button>
-             <button class="size-button" onclick="selectSize('M', 'pants')">M</button>
-             <button class="size-button" onclick="selectSize('L', 'pants')">L</button>
-             <button class="size-button" onclick="selectSize('XL', 'pants')">XL</button>
-         </div>
-
          <!-- Notes -->
          <label for="notes">Notes (optional):</label>
-         <textarea id="notes" placeholder="Add name, Add chest or sleeve pocket, Add ID holder, Long sleeves....... "></textarea>
+         <textarea id="notes" placeholder="Add name,....... "></textarea>
      </div>
 
      <!-- Add to Cart Button -->
      <div class="add-to-cart">
          <button id="cart-button" onclick="addToCart()">Add to Cart</button>
          <a href="checkout.html">🛒</a>
+      
      </div>
 
         <!-- Back Arrow -->
@@ -305,21 +292,19 @@
         function addToCart() {
             const color = document.getElementById('color-select').value;
             const topSize = document.querySelector('#top-size .selected').textContent;
-            const pantsSize = document.querySelector('#pants-size .selected').textContent;
             const notes = document.getElementById('notes').value;
 
-            if (!color || !topSize || !pantsSize) {
+            if (!color || !topSize ) {
                 alert('Please select all options.');
                 return;
             }
             let product = {
-                product_name: '#02',
-                image: src="./images/scrub2.jpg",
+                image: src="./images/jacket1.jpg",
+                product_name: 'J1',
                 color: color,
                 top_size: topSize,
-                pants_size: pantsSize,
                 notes: notes,
-                total_price: 21.500
+                total_price: 14.500
             };
 
             // Save the product to the cart (example for localStorage)

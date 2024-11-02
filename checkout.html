@@ -6,11 +6,11 @@
     <title>Checkout</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Playfair Display', serif; margin: 0; padding: 0; background-color: #f9f6f4; color: #333; }
+        body { font-family: 'Playfair Display', serif; margin: 0; padding: 0; background-color: #EAEAE2;  color: #333; }
         header { padding: 20px; text-align: center; }
         img.logo { width: 250px; }
-        nav { background-color: #fff; padding: 15px; text-align: center; border-bottom: 1px solid #e5e5e5; position: relative; }
-        nav a { color: #333; margin: 0 20px; font-size: 1.2em; text-decoration: none; }
+        nav { background-color: #D2D1C4; padding: 15px; text-align: center; border-bottom: 1px solid #e5e5e5; position: relative; }
+        nav a { color: #89745E; margin: 0 20px; font-size: 1.2em; text-decoration: none; }
         .contact-icons { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
         .contact-icons img { width: 30px; margin-left: 10px; cursor: pointer; }
         .container { width: 80%; margin: 40px auto; }
@@ -18,19 +18,20 @@
         .summary-item { margin-bottom: 10px; display: flex; align-items: center; border-bottom: 1px solid #e5e5e5; padding-bottom: 10px; position: relative; }
         .summary-item img { width: 80px; height: auto; margin-right: 10px; }
         .summary-item .details { flex: 1; }
-        .summary-item .price { color: #e5bfbf; }
+        .summary-item .price { color: #89745E; }
         .summary-item .delete-icon { position: absolute; right: 10px; top: 10px; cursor: pointer; width: 24px; height: 24px; }
         .discount { margin-top: 20px; }
         .discount input { padding: 10px; font-size: 1em; border-radius: 5px; border: 1px solid #ddd; }
-        .discount button { padding: 10px 20px; font-size: 1em; border-radius: 5px; background-color: #e5bfbf; color: white; border: none; cursor: pointer; }
+        .discount button { padding: 10px 20px; font-size: 1em; border-radius: 5px; background-color: #89745E; color: #EAEAE2; border: none; cursor: pointer; }
         .checkout-buttons { margin-top: 20px; text-align: center; }
-        .checkout-buttons a { text-decoration: none; background-color: #e5bfbf; color: white; padding: 10px 20px; border-radius: 5px; font-size: 1.1em; margin: 0 10px; }
+        .checkout-buttons a { text-decoration: none; background-color: #89745E; color: #EAEAE2; padding: 10px 20px; border-radius: 5px; font-size: 1.1em; margin: 0 10px; }
         .order-info { margin-top: 20px; background-color: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
         .order-info h2 { margin-top: 0; }
         .order-info p { margin-bottom: 10px; }
         .order-info input[type="text"] { padding: 10px; font-size: 1em; border-radius: 5px; border: 1px solid #ddd; width: calc(100% - 22px); }
         .order-info input[type="radio"] { margin-right: 10px; }
         .order-info label { font-size: 1em; margin-right: 20px; }
+        
     </style>
 </head>
 <body>
@@ -38,14 +39,14 @@
         <img src="./images/logo.jpg" alt="Your Store Logo" class="logo">
     </header>
     <nav>
-        <a href="index.html">HOME</a>
-        <a href="scrubs.html">SCRUBS</a>
-     <!--   <a href="accessories.html">ACCESSORIES</a>-->
-        <a href="checkout.html">🛒</a>
-       <!--  <div class="contact-icons">
-            <a href="https://www.instagram.com/scrubologykw" target="_blank"><img src="./images/instragram-logo.jpg" alt="Instagram"></a>
-            <a href="https://wa.me/98969785" target="_blank"><img src="./images/whatsapp-logo.jpg" alt="WhatsApp"></a>
-        </div> -->
+        <a href="index.html">Home</a>
+        <a href="scrubs.html">Scrubs</a>
+     <!--   <a href="accessories.html">Accessories</a>-->
+        <a href="checkout.html">🛒</a> 
+        <a href="https://wa.me/50552689/?text=Hey,👋🏻 I want to send a gift voucher for a friend.
+        Friend’s Name:
+        Friend’s Number:
+        ">🎁</a>
     </nav>
     <div class="container">
         <h1>Checkout</h1>
@@ -144,7 +145,7 @@
             let items = cartData.map(item => `Product: ${item.product_name}\nColor: ${item.color}\nTop Size: ${item.top_size}\nPants Size: ${item.pants_size}\nNotes: ${item.notes}\nPrice: ${item.total_price}`).join('\n\n');
             let message = `Order Summary:\n\n${items}\n\nName: ${name}\nAddress: ${address}\nPayment Method: ${paymentMethod}\nTotal: ${total}`;
 
-            let whatsappLink = `https://wa.me/98969785?text=${encodeURIComponent(message)}`;
+            let whatsappLink = `https://wa.me/50552689?text=${encodeURIComponent(message)}`;
             window.open(whatsappLink, '_blank');
         }
 

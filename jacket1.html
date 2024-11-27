@@ -184,6 +184,55 @@
         font-size: 1em;
         resize: none; /* Disables manual resizing */
     }
+    .image-container {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 9999;
+            max-width: 100%;
+            max-height: 100%;
+            overflow: auto;
+        }
+
+        /* Styling for the close button */
+        .close-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #000000;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* Styling for the image */
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+        }
+        .showColors{
+        padding: 2px 3px;
+        border: none;
+        background-color: #89745E;
+        color: #EAEAE2;
+        cursor: pointer;
+        border-radius: 7px;
+        font-size: 1em;
+        transition: background-color 0.3s;
+        }
+        .showSizeChart{
+        padding: 2px 3px;
+        border: none;
+        background-color: #89745E;
+        color: #EAEAE2;
+        cursor: pointer;
+        border-radius: 7px;
+        font-size: 1em;
+        transition: background-color 0.3s;
+        }
     </style>
 </head>
 <body>
@@ -196,10 +245,7 @@
         <a href="scrubs.html">Scrubs</a>
      <!--   <a href="accessories.html">Accessories</a>-->
         <a href="checkout.html">🛒</a> 
-        <a href="https://wa.me/50552689/?text=Hey,👋🏻 I want to send a gift voucher for a friend.
-        Friend’s Name:
-        Friend’s Number:
-        ">🎁</a>
+        <a href="https://wa.me/50552689/?text=Hey, I want to send a gift voucher .">🎁</a>
     </nav>
 
     <div class="product-details">
@@ -228,8 +274,12 @@
         <div class="selection-box">
             <!-- Select Scrub Color -->
             <label for="color-select">Select Scrub Color :</label>
+          <br>
      <input type="text" id="color-select" class="color-box" placeholder="Enter color">
+     <button class="showColors" onclick="showColor()"> Pallet </button>
+            <br>
          <label>Select Top Size:</label>
+         <br>
          <div class="size-buttons" id="top-size">
              <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
              <button class="size-button" onclick="selectSize('S', 'top')">S</button>
@@ -237,7 +287,8 @@
              <button class="size-button" onclick="selectSize('L', 'top')">L</button>
              <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
          </div>
-
+         <button class="showSizeChart" onclick="showSizeChart()"> Size Chart </button>
+         <br>
          <!-- Notes -->
          <label for="notes">Notes (optional):</label>
          <textarea id="notes" placeholder="Add name,....... "></textarea>
@@ -257,6 +308,70 @@
    
     <!-- Script Section -->
     <script>
+        function showColor() {
+            let imageContainer =
+                document.createElement("div");
+            imageContainer.className =
+                "image-container";
+
+            let image =
+                document.createElement("img");
+            image.src ="./images/scrub2.jpg";
+            let closeButton =
+                document.createElement(
+                    "button"
+                );
+            closeButton.textContent = "X";
+            closeButton.className =
+                "close-btn";
+            closeButton.onclick =
+                function () {
+                    document.body.removeChild(
+                        imageContainer
+                    );
+                };
+
+            imageContainer.appendChild(
+                closeButton
+            );
+            imageContainer.appendChild(image);
+
+            document.body.appendChild(
+                imageContainer
+            );
+        }
+        function showSizeChart() {
+            let imageContainer =
+                document.createElement("div");
+            imageContainer.className =
+                "image-container";
+
+            let image =
+                document.createElement("img");
+            image.src ="./images/whatsapp-logo.jpg";
+            let closeButton =
+                document.createElement(
+                    "button"
+                );
+            closeButton.textContent = "X";
+            closeButton.className =
+                "close-btn";
+            closeButton.onclick =
+                function () {
+                    document.body.removeChild(
+                        imageContainer
+                    );
+                };
+
+            imageContainer.appendChild(
+                closeButton
+            );
+            imageContainer.appendChild(image);
+
+            document.body.appendChild(
+                imageContainer
+            );
+        }
         let slideIndex = 0;
         const totalSlides = document.querySelectorAll('.slides img').length;
 

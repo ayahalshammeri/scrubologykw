@@ -23,7 +23,7 @@
         text-align: center;
     }
     img.logo {
-        width: 250px;
+        width: 150px;
     }
 
     /* Navigation Styling */
@@ -56,10 +56,10 @@
 
     /* Product Details Section */
     .product-details {
-        width: 80%;
+        width: 50%;
         margin: 40px auto;
         position: relative;
-        text-align: center;
+        /* text-align: left;*/
     }
 
     /* Product Images */
@@ -88,8 +88,8 @@
     }
     .product-images .arrows div {
         background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        padding: 20px;
+        color:#fff;
+        padding: 10px;
         cursor: pointer;
     }
 
@@ -118,7 +118,7 @@
     /* Color Box */
     .color-box {
         display: inline-block;
-        width: 120px;
+        width: 100px;
         padding: 5px;
         border: 1px solid #89745E;
         border-radius: 5px;
@@ -177,8 +177,8 @@
     #notes {
         width: 90%;
         height: 100px; /* Increased height */
-        padding: 10px;
-        border: 1px solid #e5e5e5;
+        padding: 15px;
+        border: 1px solid #89745E;
         border-radius: 5px;
         margin-top: 20px;
         font-size: 1em;
@@ -215,27 +215,25 @@
             height: auto;
         }
         .showColors{
-        padding: 2px 3px;
+        padding: 2px 5px;
         border: none;
         background-color: #89745E;
         color: #EAEAE2;
         cursor: pointer;
-        border-radius: 7px;
+        border-radius: 5px;
         font-size: 1em;
         transition: background-color 0.3s;
         }
         .showSizeChart{
-        padding: 2px 3px;
+        padding: 2px 5px;
         border: none;
         background-color: #89745E;
         color: #EAEAE2;
         cursor: pointer;
-        border-radius: 7px;
+        border-radius: 5px;
         font-size: 1em;
         transition: background-color 0.3s;
         }
-
-
     </style>
 </head>
 <body>
@@ -271,8 +269,7 @@
         <div class="description">
             <h1>#01</h1>
             <p class="price">25.500 KD</p>
-            <h4>Two large doubled front pockets <br> Straight-legged and comfy pants with two side pockets</h4>
-        
+            Two large doubled front pockets <br> Straight-legged and comfy pants with two side pockets
         </div>
 
         <!-- Selection Box for Color, Top & Pants Sizes, and Notes -->
@@ -280,33 +277,43 @@
             <!-- Select Scrub Color -->
             <label for="color-select">Select Scrub Color :</label>
             <br>
-           
             <input type="text" id="color-select" class="color-box" placeholder="Enter color">
            <!-- <button class="showColors" onclick="showColor()"> Pallet </button> --> 
             <br>
          <!-- Select Top Size -->
          <label>Select Top Size:</label>
          <br>
-         <div class="size-buttons" id="top-size">
+         <input class="sizes" type="text" id="chest-select" class="chest-box" placeholder="chest">
+         <input class="sizes" type="text" id="waist-select" class="waist-box" placeholder="waist">
+         <input class="sizes" type="text" id="hips-select" class="hips-box" placeholder="hips">
+         <input class="sizes" type="text" id="length" class="length-box" placeholder="length">
+         <input class="sizes" type="text" id="shoulder-select" class="shoulder-box" placeholder="shoulder">
+         <input class="sizes" type="text" id="sleeve length-select" class="sleeve length-box" placeholder="sleeve length">
+         <input class="sizes" type="text" id="sleeve opening-select" class="sleeve opening-box" placeholder="sleeve opening">
+        <!-- <div class="size-buttons" id="top-size">
              <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
              <button class="size-button" onclick="selectSize('S', 'top')">S</button>
              <button class="size-button" onclick="selectSize('M', 'top')">M</button>
              <button class="size-button" onclick="selectSize('L', 'top')">L</button>
              <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
              <button class="size-button" onclick="selectSize('XXL', 'top')">XXL</button>
-         </div>
+         </div> --> <br>
 
          <!-- Select Pants Size -->
          <label>Select Pants Size:</label>
          <br>
-         <div class="size-buttons" id="pants-size">
+         <input class="sizes" type="text" id="chest-select" class="chest-box" placeholder="chest">
+         <input class="sizes" type="text" id="waist-select" class="waist-box" placeholder="waist">
+         <input class="sizes" type="text" id="hips-select" class="hips-box" placeholder="hips">
+        
+         <!-- <div class="size-buttons" id="pants-size">
              <button class="size-button" onclick="selectSize('XS', 'pants')">XS</button>
              <button class="size-button" onclick="selectSize('S', 'pants')">S</button>
              <button class="size-button" onclick="selectSize('M', 'pants')">M</button>
              <button class="size-button" onclick="selectSize('L', 'pants')">L</button>
              <button class="size-button" onclick="selectSize('XL', 'pants')">XL</button>
              <button class="size-button" onclick="selectSize('XXL', 'pants')">XXL</button>
-         </div>
+         </div> -->
          <br>
          <button class="showSizeChart" onclick="showSizeChart()"> Size Chart </button>
          <br>

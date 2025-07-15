@@ -10,7 +10,8 @@
         header { padding: 20px; text-align: center; }
         img.logo { width: 250px; }
         nav { background-color: #D2D1C4; padding: 15px; text-align: center; border-bottom: 1px solid #e5e5e5; position: relative; }
-        nav a { color: #89745E; margin: 0 20px; font-size: 1.2em; text-decoration: none; }
+        .botton { background-color: #D2D1C4; padding: 15px; text-align: center; border-bottom: 1px solid #e5e5e5; position: relative; }
+        nav a { color: #89745E; margin: 0 20px; font-size: 1.5em; text-decoration: none; }
         .contact-icons { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
         .contact-icons img { width: 30px; margin-left: 10px; cursor: pointer; }
         .slideshow { position: relative; width: 100%; height: 34vw; overflow: hidden; }
@@ -25,7 +26,6 @@
         .copy-button:hover { background-color: #e5d9d9; }
         .copy-button img { width: 100%; height: 100%; object-fit: cover; border-radius: 10px; }
         .copy-button { cursor: pointer; }
-
         
     </style>
     <script>
@@ -45,25 +45,26 @@
     <header>
         <img src="./images/logo.jpg" alt="Your Store Logo" class="logo">
     </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="scrubs.html">Scrubs</a>
-     <!--   <a href="accessories.html">Accessories</a>-->
-        <a href="checkout.html">🛒</a> 
-        <a href="https://wa.me/50552689/?text=Hey, I want to send a gift voucher .">🎁</a>
+     <nav >
+         <!--  <a href="index.html">Home</a>--> 
+        <a href="scrubs.html">Order Now</a>
+          <!-- <a href="accessories.html">Accessories</a> --> 
+       <!-- <a href="checkout.html">🛒</a> --> 
+       <!--  <a href="ht tps://wa.me/50552689/?text=Hey, I want to send a gift voucher .">🎁</a>-->
     </nav>
-    <div class="slideshow">
+
+    
+    <!-- <div class="slideshow">
         <img src="./images/slide1.jpg" alt="Slide 1" class="active">
         <img src="./images/slide2.jpg" alt="Slide 2">
         <img src="./images/slide3.jpg" alt="Slide 3">
-    </div>
+    </div> -->
     <div class="intro">
         <h3>Scrub•o•logy | ˈskrʌbˌɒlədʒi |</h3>
         <h5>  noun [mass noun]</h5>
         <p>The study and of comfort and style in medical wear. <br>
      High-quality scrubs designed for professionals who value elegance, functionality, and ease of movement.</p>
     </div>
-   
   <!--  <div class="selection-container">
         <div class="selection" style="background-image: url('scrub-collection.jpg');" onclick="window.location.href='scrubs.html'"></div>
    <div class="selection" style="background-image: url('accessories-collection.jpg');" onclick="window.location.href='scrubs.html'"></div> -->
@@ -72,6 +73,12 @@
 
    <!-- <img src="./images/discount.jpg" alt=" press here for 10% off" class="copy-button" onclick="copyText()">
         <textarea id="text-to-copy" style="position: absolute; left: -9999px;">LAUNCH</textarea> -->
+    
+       <!-- <navclass="botton">  
+          <h4>   Contact Us By <a href="ht tps://wa.me/50552689/?text=Hey">whatsapp</a> </h4>
+          <a href="instagram//:media?id=434784289393782000_15903882">instagram</a> 
+        </nav>   -->
+  
     <script>
         function copyText() {
             // Get the text area
@@ -83,7 +90,6 @@
 
             // Copy the text
             document.execCommand('copy');
-
             // Alert the copied text (optional)
             alert('Discount code is copied !');
         }

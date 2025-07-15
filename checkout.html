@@ -8,7 +8,7 @@
     <style>
         body { font-family: 'Playfair Display', serif; margin: 0; padding: 0; background-color: #EAEAE2;  color: #333; }
         header { padding: 20px; text-align: center; }
-        img.logo { width: 250px; }
+        img.logo { width: 150px; }
         nav { background-color: #D2D1C4; padding: 15px; text-align: center; border-bottom: 1px solid #e5e5e5; position: relative; }
         nav a { color: #89745E; margin: 0 20px; font-size: 1.2em; text-decoration: none; }
         .contact-icons { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
@@ -114,7 +114,7 @@
             const discountDisplay = document.getElementById('discount-display');
             let totalPrice = parseFloat(document.getElementById('total-price').textContent.replace(' KD', ''));
 
-            if (discountCode === 'MLS10') {
+            if (discountCode === 'MLS10--------') {
                 totalPrice *= 0.9; // Apply 10% discount
                 discountDisplay.textContent = 'Discount Applied: -10%';
             }else {

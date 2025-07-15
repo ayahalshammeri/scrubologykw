@@ -23,7 +23,7 @@
         text-align: center;
     }
     img.logo {
-        width: 250px;
+        width: 150px;
     }
 
     /* Navigation Styling */
@@ -56,7 +56,7 @@
 
     /* Product Details Section */
     .product-details {
-        width: 80%;
+        width: 50%;
         margin: 40px auto;
         position: relative;
         text-align: center;
@@ -88,8 +88,8 @@
     }
     .product-images .arrows div {
         background: rgba(0, 0, 0, 0.5);
-        color: #fff;
-        padding: 20px;
+        color:#fff;
+        padding: 10px;
         cursor: pointer;
     }
 
@@ -118,7 +118,7 @@
     /* Color Box */
     .color-box {
         display: inline-block;
-        width: 120px;
+        width: 100px;
         padding: 5px;
         border: 1px solid #89745E;
         border-radius: 5px;
@@ -158,7 +158,7 @@
         padding: 10px 20px;
         border: none;
         background-color: #89745E;
-        color: #fff;
+        color: #EAEAE2;
         cursor: pointer;
         border-radius: 5px;
         font-size: 1.2em;
@@ -175,15 +175,16 @@
 
     /* Bigger Notes Box */
     #notes {
-        width: 90%;
+        width: 130%;
         height: 100px; /* Increased height */
-        padding: 10px;
-        border: 1px solid #e5e5e5;
+        padding: 15px;
+        border: 1px solid #89745E;
         border-radius: 5px;
         margin-top: 20px;
         font-size: 1em;
         resize: none; /* Disables manual resizing */
     }
+
     .image-container {
             position: fixed;
             top: 50%;
@@ -214,26 +215,25 @@
             height: auto;
         }
         .showColors{
-        padding: 2px 3px;
+        padding: 2px 5px;
         border: none;
         background-color: #89745E;
         color: #EAEAE2;
         cursor: pointer;
-        border-radius: 7px;
+        border-radius: 5px;
         font-size: 1em;
         transition: background-color 0.3s;
         }
         .showSizeChart{
-        padding: 2px 3px;
+        padding: 2px 5px;
         border: none;
         background-color: #89745E;
         color: #EAEAE2;
         cursor: pointer;
-        border-radius: 7px;
+        border-radius: 5px;
         font-size: 1em;
         transition: background-color 0.3s;
         }
-    </style>
     </style>
 </head>
 <body>
@@ -268,7 +268,7 @@
         <div class="description">
             <h1>#02</h1>
             <p class="price">24.500 KD</p>
-            <h4>Simple two front pockets <br> Straight-legged and comfy pants with two side pockets </h4>
+            Simple two front pockets <br> Straight-legged and comfy pants with two side pockets
            
         </div>
 
@@ -277,33 +277,33 @@
             <!-- Select Scrub Color -->
             <label for="color-select">Select Scrub Color :</label>
             <br>
-           
             <input type="text" id="color-select" class="color-box" placeholder="Enter color">
            <!--  <button class="showColors" onclick="showColor()"> Pallet </button>-->
             <br>
-         <!-- Select Top Size -->
-         <label>Select Top Size:</label>
-         <br>
-         <div class="size-buttons" id="top-size">
-             <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
-             <button class="size-button" onclick="selectSize('S', 'top')">S</button>
-             <button class="size-button" onclick="selectSize('M', 'top')">M</button>
-             <button class="size-button" onclick="selectSize('L', 'top')">L</button>
-             <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
-             <button class="size-button" onclick="selectSize('XXL', 'top')">XXL</button>
-         </div>
-
-         <!-- Select Pants Size -->
-         <label>Select Pants Size:</label>
-         <br>
-         <div class="size-buttons" id="pants-size">
-             <button class="size-button" onclick="selectSize('XS', 'pants')">XS</button>
-             <button class="size-button" onclick="selectSize('S', 'pants')">S</button>
-             <button class="size-button" onclick="selectSize('M', 'pants')">M</button>
-             <button class="size-button" onclick="selectSize('L', 'pants')">L</button>
-             <button class="size-button" onclick="selectSize('XL', 'pants')">XL</button>
-             <button class="size-button" onclick="selectSize('XXL', 'pants')">XXL</button>
-         </div>
+          <!-- Select Top Size -->
+          <label>Select Top Size:</label>
+          <br>
+        <div class="size-buttons" id="top-size">
+              <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
+              <button class="size-button" onclick="selectSize('S', 'top')">S</button>
+              <button class="size-button" onclick="selectSize('M', 'top')">M</button>
+              <button class="size-button" onclick="selectSize('L', 'top')">L</button>
+              <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
+              <button class="size-button" onclick="selectSize('XXL', 'top')">XXL</button>
+          </div>
+          <br>
+ 
+          <!-- Select Pants Size -->
+          <label>Select Pants Size:</label>
+          <br>
+          <div class="size-buttons" id="pants-size">
+              <button class="size-button" onclick="selectSize('XS', 'pants')">XS</button>
+              <button class="size-button" onclick="selectSize('S', 'pants')">S</button>
+              <button class="size-button" onclick="selectSize('M', 'pants')">M</button>
+              <button class="size-button" onclick="selectSize('L', 'pants')">L</button>
+              <button class="size-button" onclick="selectSize('XL', 'pants')">XL</button>
+              <button class="size-button" onclick="selectSize('XXL', 'pants')">XXL</button>
+          </div> 
          <br>
          <button class="showSizeChart" onclick="showSizeChart()"> Size Chart </button>
          <br>

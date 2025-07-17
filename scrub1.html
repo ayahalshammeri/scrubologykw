@@ -59,7 +59,7 @@
         width: 50%;
         margin: 40px auto;
         position: relative;
-        /* text-align: left;*/
+        text-align: center;
     }
 
     /* Product Images */
@@ -113,17 +113,6 @@
     }
     .selection-box label {
         font-weight: bold;
-    }
-
-    /* Color Box */
-    .color-box {
-        display: inline-block;
-        width: 100px;
-        padding: 5px;
-        border: 1px solid #89745E;
-        border-radius: 5px;
-        text-align: center;
-        margin-bottom: 20px;
     }
 
     /* Size Buttons Styling */
@@ -269,56 +258,71 @@
         <div class="description">
             <h1>#01</h1>
             <p class="price">25.500 KD</p>
-            Two large doubled front pockets <br> Straight-legged and comfy pants with two side pockets
+            <ul style="text-align: left;">
+            <li>Two large doubled front pockets</li>
+            <li>Straight-legged and comfy pants with two side pockets</li>
+        </ul>
         </div>
 
         <!-- Selection Box for Color, Top & Pants Sizes, and Notes -->
-        <div class="selection-box">
+        
             <!-- Select Scrub Color -->
-            <label for="color-select">Select Scrub Color :</label>
-            <br>
-            <input type="text" id="color-select" class="color-box" placeholder="Enter color">
-           <!-- <button class="showColors" onclick="showColor()"> Pallet </button> --> 
-            <br>
-         <!-- Select Top Size -->
+
+  <div style="border: 1px solid #89745E; padding: 15px; border-radius: 10px; width: 90%; margin-top: 30px;">
+   <div class="selection-box">
+    <h3 style="color:#89745E; text-align: center;">Select Color</h3>
+    <input type="text" id="color-select"  placeholder="Enter color" style="flex: 1; min-width: 96%; padding: 10px;">
+    <!-- <button class="showColors" onclick="showColor()"> Pallet </button> --> 
+    <h3 style="color:#89745E; text-align: center;">👕 Top Measurements</h3>
+    
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <input type="text" placeholder="Chest" style="flex: 1; min-width: 45%; padding: 10px;">
+      <input type="text" placeholder="Waist" style="flex: 1; min-width: 45%; padding: 10px;">
+      <input type="text" placeholder="Length" style="flex: 1; min-width: 45%; padding: 10px;">
+      <input type="text" placeholder="Shoulder" style="flex: 1; min-width: 45%; padding: 10px;">
+      <input type="text" placeholder="Sleeve length" style="flex: 1; min-width: 45%; padding: 10px;">
+      <input type="text" placeholder="Sleeve opening" style="flex: 1; min-width: 45%; padding: 10px;">
+    </div>
+
+    <h3 style="color:#89745E; text-align: center; margin-top: 30px;">👖 Pants Measurements</h3>
+
+    <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+      <input type="text" placeholder="Length" style="flex: 1; min-width: 45%; padding: 10px;">
+      <input type="text" placeholder="Thighs" style="flex: 1; min-width: 45%; padding: 10px;">
+      <input type="text" placeholder="Hips" style="flex: 1; min-width: 45%; padding: 10px;">
+    </div>
+  </div>
+           <!-- ---------------------------
+         <!- Select Top Size ->
          <label>Select Top Size:</label>
          <br>
-         <input class="sizes" type="text" id="chest-select" class="chest-box" placeholder="chest">
-         <input class="sizes" type="text" id="waist-select" class="waist-box" placeholder="waist">
-         <input class="sizes" type="text" id="hips-select" class="hips-box" placeholder="hips">
-         <input class="sizes" type="text" id="length" class="length-box" placeholder="length">
-         <input class="sizes" type="text" id="shoulder-select" class="shoulder-box" placeholder="shoulder">
-         <input class="sizes" type="text" id="sleeve length-select" class="sleeve length-box" placeholder="sleeve length">
-         <input class="sizes" type="text" id="sleeve opening-select" class="sleeve opening-box" placeholder="sleeve opening">
-        <!-- <div class="size-buttons" id="top-size">
+       <div class="size-buttons" id="top-size">
              <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
              <button class="size-button" onclick="selectSize('S', 'top')">S</button>
              <button class="size-button" onclick="selectSize('M', 'top')">M</button>
              <button class="size-button" onclick="selectSize('L', 'top')">L</button>
              <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
              <button class="size-button" onclick="selectSize('XXL', 'top')">XXL</button>
-         </div> --> <br>
+         </div>
+         <br>
 
-         <!-- Select Pants Size -->
+         <!- Select Pants Size ->
          <label>Select Pants Size:</label>
          <br>
-         <input class="sizes" type="text" id="chest-select" class="chest-box" placeholder="chest">
-         <input class="sizes" type="text" id="waist-select" class="waist-box" placeholder="waist">
-         <input class="sizes" type="text" id="hips-select" class="hips-box" placeholder="hips">
-        
-         <!-- <div class="size-buttons" id="pants-size">
+         <div class="size-buttons" id="pants-size">
              <button class="size-button" onclick="selectSize('XS', 'pants')">XS</button>
              <button class="size-button" onclick="selectSize('S', 'pants')">S</button>
              <button class="size-button" onclick="selectSize('M', 'pants')">M</button>
              <button class="size-button" onclick="selectSize('L', 'pants')">L</button>
              <button class="size-button" onclick="selectSize('XL', 'pants')">XL</button>
              <button class="size-button" onclick="selectSize('XXL', 'pants')">XXL</button>
-         </div> -->
+         </div>
+         ------------------- -->
          <br>
          <button class="showSizeChart" onclick="showSizeChart()"> Size Chart </button>
-         <br>
+         <br> <br>
          <!-- Notes -->
-         <label for="notes">Notes (optional):</label>
+         <label style="color:#89745E; text-align: center;" for="notes">🗒️ Notes (optional):</label>
          <textarea id="notes" placeholder="Add name, Add chest or sleeve pocket, Add ID holder, Long sleeves....... "></textarea>
      </div>
 
@@ -346,7 +350,7 @@ function showColor() {
 
             let image =
                 document.createElement("img");
-            image.src ="./images/scrub2.jpg";
+            image.src ="./images/scrub1.jpg";
             let closeButton =
                 document.createElement(
                     "button"
@@ -435,42 +439,54 @@ function showColor() {
                 }
             });
         }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        function addToCart() {
-            const color = document.getElementById('color-select').value;
-            const topSize = document.querySelector('#top-size .selected').textContent;
-            const pantsSize = document.querySelector('#pants-size .selected').textContent;
-            const notes = document.getElementById('notes').value;
+function addToCart() {
+    const color = document.getElementById('color-select').value;
+    const notes = document.getElementById('notes').value;
 
-            if (!color || !topSize || !pantsSize) {
-                alert('Please select all options.');
-                return;
-            }
-            let product = {
-                image: src="./images/scrub1.jpg",
-                product_name: '#01',
-                color: color,
-                top_size: topSize,
-                pants_size: pantsSize,
-                notes: notes,
-                total_price: 25.500
-            };
+    // Get all measurement inputs
+    const measurements = {
+        chest: document.querySelector('input[placeholder="Chest"]').value,
+        waistTop: document.querySelector('input[placeholder="Waist"]').value,
+        lengthTop: document.querySelector('input[placeholder="Length"]').value,
+        shoulder: document.querySelector('input[placeholder="Shoulder"]').value,
+        sleeveLength: document.querySelector('input[placeholder="Sleeve length"]').value,
+        sleeveOpening: document.querySelector('input[placeholder="Sleeve opening"]').value,
+        pantsLength: document.querySelectorAll('input[placeholder="Length"]')[1].value,
+        thighs: document.querySelector('input[placeholder="Thighs"]').value,
+        hipsPants: document.querySelectorAll('input[placeholder="Hips"]').value
+    };
 
-            // Save the product to the cart (example for localStorage)
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
+    if (!color) {
+        alert('Please select a color.');
+        return;
+    }
 
-            // Change button text to "Added Successfully" and revert back
-            const button = document.getElementById('cart-button');
-            button.textContent = 'Added Successfully!';
-            button.classList.add('success');
-            
-            setTimeout(() => {
-                button.textContent = 'Add to Cart';
-                button.classList.remove('success');
-            }, 3000); // 4 seconds
-        }
+    const product = {
+        image: "./images/scrub1.jpg",
+        product_name: '#01',
+        color: color,
+        top_size: "Custom",   // مهم جدًا عشان ما يخترب الكود القديم
+        pants_size: "Custom", // نفس الشي
+        measurements: measurements,
+        notes: notes,
+        total_price: 25.500
+    };
+
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    const button = document.getElementById('cart-button');
+    button.textContent = 'Added Successfully!';
+    button.classList.add('success');
+
+    setTimeout(() => {
+        button.textContent = 'Add to Cart';
+        button.classList.remove('success');
+    }, 3000);
+}
     </script>
 </body>
 </html>

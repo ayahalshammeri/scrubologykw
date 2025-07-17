@@ -176,9 +176,9 @@
 
     /* Bigger Notes Box */
     #notes {
-        width: 130%;
+        width: 85%;
         height: 100px; /* Increased height */
-        padding: 15px;
+        padding: 10px;
         border: 1px solid #89745E;
         border-radius: 5px;
         margin-top: 20px;
@@ -273,28 +273,30 @@
         </div>
 
         <!-- Selection Box for Color, Top Sizes, and Notes -->
-        <div class="selection-box">
-            <!-- Select Scrub Color -->
-            <label for="color-select">Select jacket Color :</label>
-          <br>
-     <input type="text" id="color-select" class="color-box" placeholder="Enter color">
-    <!--  <button class="showColors" onclick="showColor()"> Pallet </button>-->
-            <br>
-         <label>Select jacket Size:</label>
-         <br>
-         <div class="size-buttons" id="top-size">
-             <button class="size-button" onclick="selectSize('XS', 'top')">XS</button>
-             <button class="size-button" onclick="selectSize('S', 'top')">S</button>
-             <button class="size-button" onclick="selectSize('M', 'top')">M</button>
-             <button class="size-button" onclick="selectSize('L', 'top')">L</button>
-             <button class="size-button" onclick="selectSize('XL', 'top')">XL</button>
-         </div>
-         <button class="showSizeChart" onclick="showSizeChart()"> Size Chart </button>
-         <br>
-         <!-- Notes -->
-         <label for="notes">Notes (optional):</label>
-         <textarea id="notes" placeholder="Add name,....... "></textarea>
+       
+  <div style="border: 1px solid #89745E; padding: 15px; border-radius: 10px; width: 90%; margin-top: 30px;">
+    <div class="selection-box">
+     <h3 style="color:#89745E; text-align: center;">Select Color</h3>
+     <input type="text" id="color-select"  placeholder="Enter color" style="flex: 1; min-width: 86%; padding: 10px;">
+     <!-- <button class="showColors" onclick="showColor()"> Pallet </button> --> 
+     <h3 style="color:#89745E; text-align: center;">🧥 Jacket Measurements</h3>
+     
+     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+       <input type="text" placeholder="Chest" style="flex: 1; min-width: 45%; padding: 10px;">
+       <input type="text" placeholder="Waist" style="flex: 1; min-width: 45%; padding: 10px;">
+       <input type="text" placeholder="Length" style="flex: 1; min-width: 45%; padding: 10px;">
+       <input type="text" placeholder="Shoulder" style="flex: 1; min-width: 45%; padding: 10px;">
+       <input type="text" placeholder="Sleeve length" style="flex: 1; min-width: 45%; padding: 10px;">
+       <input type="text" placeholder="Hips" style="flex: 1; min-width: 45%; padding: 10px;">
      </div>
+   </div>
+          <br>
+          <button class="showSizeChart" onclick="showSizeChart()"> Size Chart </button>
+          <br> <br>
+          <!-- Notes -->
+          <label style="color:#89745E; text-align: center;" for="notes">🗒️ Notes (optional):</label>
+          <textarea id="notes" placeholder="Add name,....... "></textarea>
+      </div>
 
      <!-- Add to Cart Button -->
      <div class="add-to-cart">
@@ -407,37 +409,44 @@
         }
 
         function addToCart() {
-            const color = document.getElementById('color-select').value;
-            const topSize = document.querySelector('#top-size .selected').textContent;
-            const notes = document.getElementById('notes').value;
+    const color = document.getElementById('color-select').value;
+    const notes = document.getElementById('notes').value;
+    const measurements = {
+        chest: document.querySelector('input[placeholder="Chest"]').value,
+        waist: document.querySelector('input[placeholder="Waist"]').value,
+        length: document.querySelector('input[placeholder="Length"]').value,
+        shoulder: document.querySelector('input[placeholder="Shoulder"]').value,
+        sleeveLength: document.querySelector('input[placeholder="Sleeve length"]').value,
+        hips: document.querySelector('input[placeholder="Hips"]').value,
+    };
 
-            if (!color || !topSize ) {
-                alert('Please select all options.');
-                return;
-            }
-            let product = {
-                image: src="./images/jacket1.jpg",
-                product_name: 'J1',
-                color: color,
-                top_size: topSize,
-                notes: notes,
-                total_price: 14.500
-            };
+    if (!color) {
+        alert('Please enter a color.');
+        return;
+    }
 
-            // Save the product to the cart (example for localStorage)
-            let cart = JSON.parse(localStorage.getItem('cart')) || [];
-            cart.push(product);
-            localStorage.setItem('cart', JSON.stringify(cart));
+    let product = {
+        image: "./images/jacket1.jpg",
+        product_name: 'Jacket',
+        color: color,
+        top_size: "Custom",
+        measurements: measurements,
+        notes: notes,
+        total_price: 14.500
+    };
 
-            // Change button text to "Added Successfully" and revert back
-            const button = document.getElementById('cart-button');
-            button.textContent = 'Added Successfully!';
-            button.classList.add('success');
-            
-            setTimeout(() => {
-                button.textContent = 'Add to Cart';
-                button.classList.remove('success');
-            }, 3000); // 4 seconds
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    cart.push(product);
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    const button = document.getElementById('cart-button');
+    button.textContent = 'Added Successfully!';
+    button.classList.add('success');
+
+    setTimeout(() => {
+        button.textContent = 'Add to Cart';
+        button.classList.remove('success');
+    }, 3000);
         }
     </script>
 </body>

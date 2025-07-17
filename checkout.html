@@ -21,8 +21,8 @@
         .summary-item .price { color: #89745E; }
         .summary-item .delete-icon { position: absolute; right: 10px; top: 10px; cursor: pointer; width: 24px; height: 24px; }
         .discount { margin-top: 20px; }
-        .discount input { padding: 10px; font-size: 1em; border-radius: 5px; border: 1px solid #ddd; }
-        .discount button { padding: 10px 20px; font-size: 1em; border-radius: 5px; background-color: #89745E; color: #EAEAE2; border: none; cursor: pointer; }
+        .discount input { padding: 10px; font-size: 0.9em; border-radius: 5px; border: 1px solid #ddd; }
+        .discount button { padding: 10px 20px; font-size: 0.9em; border-radius: 5px; background-color: #89745E; color: #EAEAE2; border: none; cursor: pointer; }
         .checkout-buttons { margin-top: 20px; text-align: center; }
         .checkout-buttons a { text-decoration: none; background-color: #89745E; color: #EAEAE2; padding: 10px 20px; border-radius: 5px; font-size: 1.1em; margin: 0 10px; }
         .order-info { margin-top: 20px; background-color: #fff; border: 1px solid #e5e5e5; border-radius: 10px; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); }
@@ -83,20 +83,31 @@
                     // Parse price as a number and ensure it has a default value
                     let price = parseFloat(item.total_price) || 0;
                     totalPrice += price;
-                    const itemHTML = `
-                        <div class="summary-item">
-                            <img src="${item.image}" alt="${item.image}">
-                            <div class="details">
-                                <span class="product-name">${item.product_name}</span><br>
-                                <span class="product-color">Color: ${item.color}</span><br>
-                                <span class="product-top-size">Top Size: ${item.top_size}</span><br>
-                                <span class="product-pants-size">Pants Size: ${item.pants_size}</span><br>
-                                <span class="product-notes">Notes: ${item.notes}</span><br>
-                                <span class="product-price">Price: ${price.toFixed(2)} KD</span>
-                            </div>
-                            <img src="./images/deleteicon.jpg" class="delete-icon" onclick="removeItem(${index})" alt="Delete">
-                        </div>
-                    `;
+
+    /////////////////////////////////////////////////////////////////////////////////
+
+    const itemHTML = `
+  <div class="summary-item">
+    <img src="${item.image}" alt="${item.image}">
+    <div class="details">
+      <span class="product-name">${item.product_name}</span><br>
+      <span class="product-color">Color: ${item.color}</span><br>
+      <span class="product-measurements">
+        <strong>Top:</strong><br>
+        Chest: ${item.measurements?.chest || '-'}, Waist: ${item.measurements?.waistTop || '-'}<br>
+        Length: ${item.measurements?.lengthTop || '-'}, Shoulder: ${item.measurements?.shoulder || '-'}<br>
+        Sleeve Length: ${item.measurements?.sleeveLength || '-'}, Sleeve Opening: ${item.measurements?.sleeveOpening || '-'}<br><br>
+        <strong>Pants:</strong><br>
+        Length: ${item.measurements?.pantsLength || '-'}, Thighs: ${item.measurements?.thighs || '-'}, Hips: ${item.measurements?.hipsPants || '-'}
+      </span><br>
+      <span class="product-notes">Notes: ${item.notes}</span><br>
+      <span class="product-price">Price: ${price.toFixed(2)} KD</span>
+    </div>
+    <img src="./images/deleteicon.jpg" class="delete-icon" onclick="removeItem(${index})" alt="Delete">
+  </div>
+`;
+
+    /////////////////////////////////////////////////////////////////////////////////
                     cartContainer.insertAdjacentHTML('beforeend', itemHTML);
                 });
 
@@ -131,21 +142,45 @@
             localStorage.setItem('cart', JSON.stringify(cartData));
             loadCart(); // Reload cart items
         }
-
+///////////////////////////////////////////////////////////
         // Send order via WhatsApp
-        function sendWhatsAppOrder() {
-            let cartData = JSON.parse(localStorage.getItem('cart'));
-            let name = document.getElementById('name').value;
-            let address = document.getElementById('address').value;
-            let paymentMethod = document.querySelector('input[name="payment-method"]:checked')?.value;
-            let total = document.getElementById('total-price').textContent;
-            let items = cartData.map(item => `Product: ${item.product_name}\nColor: ${item.color}\nTop Size: ${item.top_size}\nPants Size: ${item.pants_size}\nNotes: ${item.notes}\nPrice: ${item.total_price}`).join('\n\n');
-            let message = `Order Summary:\n\n${items}\n\nName: ${name}\nAddress: ${address}\nPayment Method: ${paymentMethod}\nTotal: ${total}`;
 
-            let whatsappLink = `https://wa.me/50552689?text=${encodeURIComponent(message)}`;
-            window.open(whatsappLink, '_blank');
-        }
+function sendWhatsAppOrder() {
+    let cartData = JSON.parse(localStorage.getItem('cart'));
+    let name = document.getElementById('name').value;
+    let address = document.getElementById('address').value;
+    let paymentMethod = document.querySelector('input[name="payment-method"]:checked')?.value;
+    let total = document.getElementById('total-price').textContent;
 
+    let items = cartData.map(item => {
+        return `Product: ${item.product_name}
+Color: ${item.color}
+Top Size: ${item.top_size || '-'}
+Pants Size: ${item.pants_size || '-'}
+Notes: ${item.notes || '-'}
+
+Measurements:
+🩺 Top:
+• Chest: ${item.measurements?.chest || '-'}
+• Waist: ${item.measurements?.waistTop || '-'}
+• Length: ${item.measurements?.lengthTop || '-'}
+• Shoulder: ${item.measurements?.shoulder || '-'}
+• Sleeve Length: ${item.measurements?.sleeveLength || '-'}
+• Sleeve Opening: ${item.measurements?.sleeveOpening || '-'}
+
+👖 Pants:
+• Length: ${item.measurements?.pantsLength || '-'}
+• Thighs: ${item.measurements?.thighs || '-'}
+• Hips: ${item.measurements?.hipsPants || '-'}`;
+    }).join('\n\n');
+
+    let message = `Order Summary:\n\n${items}\n\nName: ${name}\nAddress: ${address}\nPayment Method: ${paymentMethod}\nTotal: ${total}`;
+
+    let whatsappLink = `https://wa.me/50552689?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank');
+}
+
+///////////////////////////////////////////////////////////
         // Initialize cart
         loadCart();
     </script>

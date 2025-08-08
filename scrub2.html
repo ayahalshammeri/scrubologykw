@@ -282,9 +282,7 @@
                    <input type="text" placeholder="Waist" style="flex: 1; min-width: 40%; padding: 10px;">
                    <input type="text" placeholder="Length" style="flex: 1; min-width: 40%; padding: 10px;">
                    <input type="text" placeholder="Shoulder" style="flex: 1; min-width: 40%; padding: 10px;">
-                   <input type="text" placeholder="Sleeve length" style="flex: 1; min-width: 40%; padding: 10px;">
-                   <input type="text" placeholder="Sleeve opening" style="flex: 1; min-width: 40%; padding: 10px;">
-                 </div>
+                   </div>
              
                  <h3 style="color:#89745E; text-align: center; margin-top: 30px;font-size: 15px;">👖 Pants Measurements</h3>
              
@@ -358,7 +356,7 @@ function showColor() {
 
             let image =
                 document.createElement("img");
-            image.src ="./images/scrubsizechart.jpg";
+            image.src ="./images/BodyMeasurement.jpg";
             let closeButton =
                 document.createElement(
                     "button"
@@ -427,11 +425,9 @@ function addToCart() {
         waistTop: document.querySelector('input[placeholder="Waist"]').value,
         lengthTop: document.querySelector('input[placeholder="Length"]').value,
         shoulder: document.querySelector('input[placeholder="Shoulder"]').value,
-        sleeveLength: document.querySelector('input[placeholder="Sleeve length"]').value,
-        sleeveOpening: document.querySelector('input[placeholder="Sleeve opening"]').value,
         pantsLength: document.querySelectorAll('input[placeholder="Length"]')[1].value,
         thighs: document.querySelector('input[placeholder="Thighs"]').value,
-        hipsPants: document.querySelectorAll('input[placeholder="Hips"]').value
+        hipsPants: document.querySelector('input[placeholder="Hips"]').value
     };
 
     if (!color) {

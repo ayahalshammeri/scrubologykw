@@ -8,175 +8,59 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Style Section -->
-    <style> body {
-        font-family: 'Playfair Display', serif;
-        margin: 0;
-        padding: 0;
-        background-color: #EAEAE2;
-        color: #333;
-    }
-
-    /* Header & Logo Styling */
-    header {
-        padding: 20px;
-        text-align: center;
-    }
-    img.logo {
-        width: 150px;
-    }
-
-    /* Navigation Styling */
-    nav {
-        background-color: #D2D1C4;
-        padding: 15px;
-        text-align: center;
-        border-bottom: 1px solid #e5e5e5;
-        position: relative;
-    }
-    nav a {
-        color: #89745E;
-        margin: 0 20px;
-        font-size: 1.2em;
-        text-decoration: none;
-    }
-
-    /* Contact Icons Styling */
-    .contact-icons {
-        position: absolute;
-        right: 15px;
-        top: 50%;
-        transform: translateY(-50%);
-    }
-    .contact-icons img {
-        width: 30px;
-        margin-left: 10px;
-        cursor: pointer;
-    }
-
-    /* Product Details Section */
-    .product-details {
-        width: 90%;
-        max-width: 800px;
-        margin: 40px auto;
-        position: relative;
-        text-align: center;
-    }
-
-    /* Product Images */
-    .product-images {
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-    }
-    .product-images .slides {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-        width: 300%;
-    }
-    .product-images .slides img {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    /* Arrows for Image Slider */
-    .product-images .arrows {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-    }
-    .product-images .arrows div {
-        background: rgba(0, 0, 0, 0.5);
-        color:#fff;
-        padding: 10px;
-        cursor: pointer;
-    }
-
-    /* Description, Price & Sizes */
-    .description {
-        margin-top: 20px;
-        font-size: 1.2em;
-        color: #89745E;
-    }
-    .price {
-        font-size: 1.5em;
-        color: #89745E;
-    }
-
-    /* Centered Selection Box */
-    .selection-box {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin-top: 40px;
-        width: 100%;
-    }
-    .selection-box label {
-        font-weight: bold;
-    }
-
-    /* Size Buttons Styling */
-    .size-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-    .size-button {
-        display: inline-block;
-        padding: 15px;
-        background-color: #f9f6f4; /* Beige default */
-        color: #333;
-        border: 1px solid #89745E;
-        border-radius: 5px;
-        cursor: pointer;
-        font-size: 1em;
-        transition: background-color 0.3s ease;
-    }
-    .size-button.selected {
-        background-color: #89745E; /* Pink when selected */
-        color: white;
-        border-color: #89745E;
-    }
-
-    /* Add to Cart Button */
-    .add-to-cart {
-        margin-top: 20px;
-    }
-    .add-to-cart button {
-        padding: 10px 20px;
-        border: none;
-        background-color: #89745E;
-        color: #EAEAE2;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 1.2em;
-        transition: background-color 0.3s;
-    }
-
-    /* Back Arrow */
-    .back-arrow {
-        position: absolute;
-        top: 20px;
-        left: 10px;
-        cursor: pointer;
-    }
-
-    /* Bigger Notes Box */
-    #notes {
-        width: 85%;
-        height: 100px; /* Increased height */
-        padding: 15px;
-        border: 1px solid #89745E;
-        border-radius: 5px;
-        margin-top: 20px;
-        font-size: 1em;
-        resize: none; /* Disables manual resizing */
-    }
-
-    .image-container {
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAEAE2;
+            color: #333;
+        }
+        header { padding: 20px; text-align: center; }
+        img.logo { width: 150px; }
+        nav {
+            background-color: #D2D1C4;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+            position: relative;
+        }
+        nav a { color: #89745E; margin: 0 20px; font-size: 1.2em; text-decoration: none; }
+        .contact-icons { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
+        .contact-icons img { width: 30px; margin-left: 10px; cursor: pointer; }
+        .product-details { width: 90%; max-width: 800px; margin: 40px auto; position: relative; text-align: center; }
+        .product-images { position: relative; width: 100%; overflow: hidden; }
+        .product-images .slides { display: flex; transition: transform 0.5s ease-in-out; width: 300%; }
+        .product-images .slides img { width: 100%; overflow: hidden; }
+        .product-images .arrows { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; }
+        .product-images .arrows div { background: rgba(0, 0, 0, 0.5); color:#fff; padding: 10px; cursor: pointer; }
+        .description { margin-top: 20px; font-size: 1.2em; color: #89745E; }
+        .price { font-size: 1.5em; color: #89745E; }
+        .selection-box { display: flex; flex-direction: column; align-items: center; margin-top: 40px; width: 100%; }
+        .selection-box label { font-weight: bold; }
+        .add-to-cart { margin-top: 20px; }
+        .add-to-cart button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #89745E;
+            color: #EAEAE2;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s;
+        }
+        .back-arrow { position: absolute; top: 20px; left: 10px; cursor: pointer; }
+        #notes {
+            width: 85%;
+            height: 100px;
+            padding: 15px;
+            border: 1px solid #89745E;
+            border-radius: 5px;
+            margin-top: 20px;
+            font-size: 1em;
+            resize: none;
+        }
+        .image-container {
             position: fixed;
             top: 50%;
             left: 50%;
@@ -185,9 +69,10 @@
             max-width: 100%;
             max-height: 100%;
             overflow: auto;
+            background: #fff;
+            padding: 10px;
+            border-radius: 8px;
         }
-
-        /* Styling for the close button */
         .close-btn {
             position: absolute;
             top: 5px;
@@ -199,31 +84,16 @@
             padding: 5px 10px;
             cursor: pointer;
         }
-
-        /* Styling for the image */
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-        }
-        .showColors{
-        padding: 2px 5px;
-        border: none;
-        background-color: #89745E;
-        color: #EAEAE2;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 1em;
-        transition: background-color 0.3s;
-        }
-        .showSizeChart{
-        padding: 2px 5px;
-        border: none;
-        background-color: #89745E;
-        color: #EAEAE2;
-        cursor: pointer;
-        border-radius: 5px;
-        font-size: 1em;
-        transition: background-color 0.3s;
+        .image-container img { max-width: 100%; height: auto; }
+        .showColors, .showSizeChart {
+            padding: 2px 5px;
+            border: none;
+            background-color: #89745E;
+            color: #EAEAE2;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 1em;
+            transition: background-color 0.3s;
         }
     </style>
 </head>
@@ -235,20 +105,16 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="scrubs.html">Scrubs</a>
-     <!--   <a href="accessories.html">Accessories</a>-->
         <a href="checkout.html">🛒</a> 
         <a href="https://wa.me/50552689/?text=Hey, I want to send a gift voucher .">🎁</a>
     </nav>
 
     <div class="product-details">
-        <!-- Product Image Slider -->
         <div class="product-images">
             <div class="slides">
                 <img src="./images/scrub3.jpg" alt="Scrub 3 Image 1">
                 <img src="./images/scrub3-image2.jpg" alt="Scrub 3 Image 2">
-             <img src="./images/scrub3-image3.jpg" alt="Scrub 3 Image 3">
-                   <!-- <img src="./images/scrub3-image4.jpg" alt="Scrub 3 Image 4"> -->
-                
+                <img src="./images/scrub3-image3.jpg" alt="Scrub 3 Image 3">
             </div>
             <div class="arrows">
                 <div id="prev">❮</div>
@@ -256,143 +122,130 @@
             </div>
         </div>
 
-        <!-- Product Details -->
         <div class="description">
             <h1>#03</h1>
             <p class="price">28.000 KD</p>
             <ul style="text-align: left;">
-            <li>Chinese neck and two side pockets</li>
-            <li>Straight-legged and comfy pants with two side pockets</li>
-        </ul>
+                <li>Chinese neck with two side pockets</li>
+                <li>Straight-legged and comfy pants with two side pockets</li>
+            </ul>
         </div>
 
-        <!-- Selection Box for Color, Top & Pants Sizes, and Notes -->
-        
-            <!-- Select Scrub Color -->
+        <div style="border: 1px solid #89745E; padding: 15px; border-radius: 10px; width: 90%; max-width: 300%; margin: 30px auto 0 auto;">
+            <div class="selection-box">
+                <h3 style="color:#89745E; text-align: center;font-size: 15px; margin-top: -40px;">Set Color :
+                </h3>
+                <button class="showColors" onclick="showColor()">Colors</button>
+                 <br> <input type="text" id="color-select" placeholder="Color Number and Color Name" style="flex: 1; min-width: 96%; padding: 10px;">
+                
+               
+                
+                <h3 style="color:#89745E; text-align: center; font-size: 15px;">👕 Top Measurements :</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <input type="text" placeholder="Chest" style="flex: 1; min-width: 40%; padding: 10px;">
+                    <input type="text" placeholder="Waist" style="flex: 1; min-width: 40%; padding: 10px;">
+                    <input type="text" placeholder="Length" style="flex: 1; min-width: 40%; padding: 10px;">
+                    <input type="text" placeholder="Shoulder" style="flex: 1; min-width: 40%; padding: 10px;">
+                </div>
+                <h3 style="color:#89745E; text-align: center; margin-top: 30px;font-size: 15px;">👖 Pants Measurements :</h3>
+                <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <input type="text" placeholder="Length" style="flex: 1; min-width: 35%; padding: 10px;">
+                    <input type="text" placeholder="Thighs" style="flex: 1; min-width: 35%; padding: 10px;">
+                    <input type="text" placeholder="Hips" style="flex: 1; min-width: 35%; padding: 10px;">
+                </div>
+            </div>
+            <br>
+            <button class="showSizeChart" onclick="showSizeChart()">Size Chart</button>
+            <br><br>
+            <label style="color:#89745E; text-align: center;" for="notes">🗒️ Notes (optional) :</label>
+            <textarea id="notes" placeholder="Add name, Add chest or sleeve pocket, Add ID holder, Long sleeves....... "></textarea>
+        </div>
 
-            <div style="border: 1px solid #89745E; padding: 15px ; border-radius: 10px; width: 90%; max-width: 300%; margin: 30px auto 0 auto; ">
-                <div class="selection-box">
-                 <h3 style="color:#89745E; text-align: center;font-size: 15px; margin-top: -40px;">Select Color</h3>
-                 <input type="text" id="color-select"  placeholder="Enter color" style="flex: 1; min-width: 96%; padding: 10px;">
-                 <!-- <button class="showColors" onclick="showColor()"> Pallet </button> --> 
-                 <h3 style="color:#89745E; text-align: center; font-size: 15px;">👕 Top Measurements</h3>
-                 
-                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                   <input type="text" placeholder="Chest" style="flex: 1; min-width: 40%; padding: 10px;">
-                   <input type="text" placeholder="Waist" style="flex: 1; min-width: 40%; padding: 10px;">
-                   <input type="text" placeholder="Length" style="flex: 1; min-width: 40%; padding: 10px;">
-                   <input type="text" placeholder="Shoulder" style="flex: 1; min-width: 40%; padding: 10px;">
-                 </div>
-             
-                 <h3 style="color:#89745E; text-align: center; margin-top: 30px;font-size: 15px;">👖 Pants Measurements</h3>
-             
-                 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                   <input type="text" placeholder="Length" style="flex: 1; min-width: 35%; padding: 10px;">
-                   <input type="text" placeholder="Thighs" style="flex: 1; min-width: 35%; padding: 10px;">
-                   <input type="text" placeholder="Hips" style="flex: 1; min-width: 35%; padding: 10px;">
-                 </div>
-               </div>
-         <br>
-         <button class="showSizeChart" onclick="showSizeChart()"> Size Chart </button>
-         <br> <br>
-         <!-- Notes -->
-         <label style="color:#89745E; text-align: center;" for="notes">🗒️ Notes (optional):</label>
-         <textarea id="notes" placeholder="Add name, Add chest or sleeve pocket, Add ID holder, Long sleeves....... "></textarea>
-     </div>
+        <div class="add-to-cart">
+            <button id="cart-button" onclick="addToCart()">Add to Cart</button>
+            <a href="checkout.html">🛒</a>
+        </div>
 
-     <!-- Add to Cart Button -->
-     <div class="add-to-cart">
-         <button id="cart-button" onclick="addToCart()">Add to Cart</button>
-         <a href="checkout.html">🛒</a>
-      
-     </div>
-
-        <!-- Back Arrow -->
         <div class="back-arrow" onclick="window.history.back();">⬅</div>
-     
     </div>
 
-   
-    <!-- Script Section -->
     <script>
+        function showColor() {
+            let imageContainer = document.createElement("div");
+            imageContainer.className = "image-container";
 
-function showColor() {
-            let imageContainer =
-                document.createElement("div");
-            imageContainer.className =
-                "image-container";
-
-            let image =
-                document.createElement("img");
-            image.src ="./images/scrub3.jpg";
-            let closeButton =
-                document.createElement(
-                    "button"
-                );
+            let closeButton = document.createElement("button");
             closeButton.textContent = "X";
-            closeButton.className =
-                "close-btn";
-            closeButton.onclick =
-                function () {
-                    document.body.removeChild(
-                        imageContainer
-                    );
-                };
+            closeButton.className = "close-btn";
+            closeButton.onclick = function () {
+                document.body.removeChild(imageContainer);
+            };
+            imageContainer.appendChild(closeButton);
 
-            imageContainer.appendChild(
-                closeButton
-            );
-            imageContainer.appendChild(image);
+            const fabricSections = [
+                { title: "خامة خفيفة وناعمة", images: ["./images/Barbie.jpg"] },
+                // if i want to add more images i have just to add a comma , "./images/Barbie2.JPG" between[]
+                { title: "خامة واقفة عملية", images: ["./images/Stretch.jpg",] }
+            ];
 
-            document.body.appendChild(
-                imageContainer
-            );
+            fabricSections.forEach(section => {
+                const title = document.createElement("h3");
+                title.textContent = section.title;
+                title.style.color = "#89745E";
+                title.style.textAlign = "center";
+                title.style.marginTop = "30px";
+                imageContainer.appendChild(title);
+
+                const wrapper = document.createElement("div");
+                wrapper.style.display = "flex";
+                wrapper.style.flexWrap = "wrap";
+                wrapper.style.justifyContent = "center";
+                wrapper.style.gap = "10px";
+                wrapper.style.marginBottom = "20px";
+
+                section.images.forEach(src => {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.style.maxWidth = "150px";
+                    img.style.border = "1px solid #89745E";
+                    img.style.borderRadius = "5px";
+                    wrapper.appendChild(img);
+                });
+
+                imageContainer.appendChild(wrapper);
+            });
+
+            document.body.appendChild(imageContainer);
         }
+
         function showSizeChart() {
-            let imageContainer =
-                document.createElement("div");
-            imageContainer.className =
-                "image-container";
+            let imageContainer = document.createElement("div");
+            imageContainer.className = "image-container";
 
-            let image =
-                document.createElement("img");
+            let image = document.createElement("img");
             image.src ="./images/BodyMeasurement.jpg";
-            let closeButton =
-                document.createElement(
-                    "button"
-                );
+
+            let closeButton = document.createElement("button");
             closeButton.textContent = "X";
-            closeButton.className =
-                "close-btn";
-            closeButton.onclick =
-                function () {
-                    document.body.removeChild(
-                        imageContainer
-                    );
-                };
+            closeButton.className = "close-btn";
+            closeButton.onclick = function () {
+                document.body.removeChild(imageContainer);
+            };
 
-            imageContainer.appendChild(
-                closeButton
-            );
+            imageContainer.appendChild(closeButton);
             imageContainer.appendChild(image);
-
-            document.body.appendChild(
-                imageContainer
-            );
+            document.body.appendChild(imageContainer);
         }
-
 
         let slideIndex = 0;
         const totalSlides = document.querySelectorAll('.slides img').length;
 
-        // Function to Show Next or Previous Slide
         function showSlide(index) {
             const slides = document.querySelector('.slides');
             const slideWidth = document.querySelector('.product-images').clientWidth;
             slides.style.transform = `translateX(-${index * slideWidth}px)`;
         }
 
-        // Event Listeners for Arrows
         document.getElementById('prev').addEventListener('click', function() {
             slideIndex = (slideIndex === 0) ? totalSlides - 1 : slideIndex - 1;
             showSlide(slideIndex);
@@ -402,63 +255,49 @@ function showColor() {
             showSlide(slideIndex);
         });
 
-        // Function to Select Size (Fixed Issue with S button)
-        function selectSize(size, type) {
-            const sizeButtons = document.querySelectorAll(`#${type}-size .size-button`);
-            sizeButtons.forEach(button => {
-                if (button.innerText === size) {
-                    button.classList.add('selected');
-                } else {
-                    button.classList.remove('selected');
-                }
-            });
+        function addToCart() {
+            const color = document.getElementById('color-select').value;
+            const notes = document.getElementById('notes').value;
+
+            const measurements = {
+                chest: document.querySelector('input[placeholder="Chest"]').value,
+                waistTop: document.querySelector('input[placeholder="Waist"]').value,
+                lengthTop: document.querySelector('input[placeholder="Length"]').value,
+                shoulder: document.querySelector('input[placeholder="Shoulder"]').value,
+                pantsLength: document.querySelectorAll('input[placeholder="Length"]')[1].value,
+                thighs: document.querySelector('input[placeholder="Thighs"]').value,
+                hipsPants: document.querySelector('input[placeholder="Hips"]').value
+            };
+
+            if (!color) {
+                alert('Please select a color.');
+                return;
+            }
+
+            const product = {
+                image: "./images/scrub3.jpg",
+                product_name: '#03',
+                color: color,
+                top_size: "Custom",
+                pants_size: "Custom",
+                measurements: measurements,
+                notes: notes,
+                total_price: 28.000
+            };
+
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart.push(product);
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            const button = document.getElementById('cart-button');
+            button.textContent = 'Added Successfully!';
+            button.classList.add('success');
+
+            setTimeout(() => {
+                button.textContent = 'Add to Cart';
+                button.classList.remove('success');
+            }, 3000);
         }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-function addToCart() {
-    const color = document.getElementById('color-select').value;
-    const notes = document.getElementById('notes').value;
-
-    // Get all measurement inputs
-    const measurements = {
-        chest: document.querySelector('input[placeholder="Chest"]').value,
-        waistTop: document.querySelector('input[placeholder="Waist"]').value,
-        lengthTop: document.querySelector('input[placeholder="Length"]').value,
-        shoulder: document.querySelector('input[placeholder="Shoulder"]').value,
-        pantsLength: document.querySelectorAll('input[placeholder="Length"]')[1].value,
-        thighs: document.querySelector('input[placeholder="Thighs"]').value,
-        hipsPants: document.querySelector('input[placeholder="Hips"]').value
-    };
-
-    if (!color) {
-        alert('Select a color.');
-        return;
-    }
-
-    const product = {
-        image: "./images/scrub3.jpg",
-        product_name: '#03',
-        color: color,
-        top_size: "Custom",   // مهم جدًا عشان ما يخترب الكود القديم
-        pants_size: "Custom", // نفس الشي
-        measurements: measurements,
-        notes: notes,
-        total_price: 28.000
-    };
-
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
-    cart.push(product);
-    localStorage.setItem('cart', JSON.stringify(cart));
-
-    const button = document.getElementById('cart-button');
-    button.textContent = 'Added Successfully!';
-    button.classList.add('success');
-
-    setTimeout(() => {
-        button.textContent = 'Add to Cart';
-        button.classList.remove('success');
-    }, 3000);
-}
     </script>
 </body>
 </html>

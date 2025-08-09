@@ -11,8 +11,7 @@
         img.logo { width: 150px; }
         nav { background-color: #D2D1C4; padding: 15px; text-align: center; border-bottom: 1px solid #e5e5e5; position: relative; }
         nav a { color: #89745E; margin: 0 20px; font-size: 1.2em; text-decoration: none; }
-        .contact-icons { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
-        .contact-icons img { width: 30px; margin-left: 10px; cursor: pointer; }
+        .lang-btn { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: #89745E; color: #fff; border: none; padding: 5px 10px; cursor: pointer; border-radius: 5px; }
         .container { width: 80%; margin: 40px auto; }
         .checkout-summary { margin-bottom: 20px; }
         .summary-item { margin-bottom: 10px; display: flex; align-items: center; border-bottom: 1px solid #e5e5e5; padding-bottom: 10px; position: relative; }
@@ -31,7 +30,6 @@
         .order-info input[type="text"] { padding: 10px; font-size: 1em; border-radius: 5px; border: 1px solid #ddd; width: calc(100% - 22px); }
         .order-info input[type="radio"] { margin-right: 10px; }
         .order-info label { font-size: 1em; margin-right: 20px; }
-        
     </style>
 </head>
 <body>
@@ -39,74 +37,122 @@
         <img src="./images/logo.jpg" alt="Your Store Logo" class="logo">
     </header>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="scrubs.html">Scrubs</a>
-     <!--   <a href="accessories.html">Accessories</a>-->
-        <a href="checkout.html">🛒</a> 
+        <button id="lang-toggle" class="lang-btn" onclick="toggleLanguage()">العربية</button>
+        <a href="index.html" id="navHome">Home</a>
+        <a href="scrubs.html" id="navScrubs">Scrubs</a>
+        <a href="checkout.html" id="navCart">🛒</a> 
     </nav>
     <div class="container">
-        <h1>Checkout</h1>
-        <div class="checkout-summary" id="cart-items">
-            <!-- Product items will be dynamically inserted here -->
-        </div>
+        <h1 id="pageTitle">Checkout</h1>
+        <div class="checkout-summary" id="cart-items"></div>
         <div class="discount">
-            <label for="discount-code">Discount Code:</label>
+            <label id="discountLabel" for="discount-code">Discount Code:</label>
             <input type="text" id="discount-code" placeholder="Enter discount code">
-            <button onclick="applyDiscount()">Apply Discount</button>
+            <button onclick="applyDiscount()" id="applyDiscountBtn">Apply Discount</button>
             <p id="discount-display"></p>
         </div>
         <div class="order-info">
-            <h2>Order Information</h2>
-            <p><strong>Name:</strong> <input type="text" id="name" placeholder="Enter your name"></p>
-            <p><strong>Address:</strong> <input type="text" id="address" placeholder="Enter your address"></p>
-            <p><strong>Payment Method:</strong></p>
-            <p><input type="radio" id="cash" name="payment-method" value="Cash"><label for="cash">Cash</label></p>
-            <p><input type="radio" id="Knet" name="payment-method" value="Knet"><label for="Knet">Knet</label></p>
-            <p><strong>Total:</strong> <span id="total-price">0.00 KD</span></p>
+            <h2 id="orderInfoTitle">Order Information</h2>
+            <p><strong id="nameLabel">Name:</strong> <input type="text" id="name" placeholder="Enter your name"></p>
+            <p><strong id="addressLabel">Address:</strong> <input type="text" id="address" placeholder="Enter your address"></p>
+            <p><strong id="paymentLabel">Payment Method:</strong></p>
+            <p><input type="radio" id="cash" name="payment-method" value="Cash"><label for="cash" id="cashLabel">Cash</label></p>
+            <p><input type="radio" id="Knet" name="payment-method" value="Knet"><label for="Knet" id="knetLabel">Knet</label></p>
+            <p><strong id="totalLabel">Total:</strong> <span id="total-price">0.00 KD</span></p>
         </div>
         <div class="checkout-buttons">
-            <a href="#" onclick="sendWhatsAppOrder()">Order via WhatsApp</a>
+            <a href="#" onclick="sendWhatsAppOrder()" id="orderBtn">Order via WhatsApp</a>
         </div>
     </div>
 
     <script>
-        // Load cart from localStorage and display items in checkout summary
+        const translations = {
+            en: {
+                navHome: "Home",
+                navScrubs: "Scrubs",
+                pageTitle: "Checkout",
+                discountLabel: "Discount Code:",
+                applyDiscountBtn: "Apply Discount",
+                orderInfoTitle: "Order Information",
+                nameLabel: "Name:",
+                addressLabel: "Address:",
+                paymentLabel: "Payment Method:",
+                cashLabel: "Cash",
+                knetLabel: "Knet",
+                totalLabel: "Total:",
+                orderBtn: "Order via WhatsApp"
+            },
+            ar: {
+                navHome: "الصفحة الرئيسية",
+                navScrubs: "سكربات",
+                pageTitle: "الدفع",
+                discountLabel: "كود الخصم:",
+                applyDiscountBtn: "تطبيق الخصم",
+                orderInfoTitle: "معلومات الطلب",
+                nameLabel: "الاسم:",
+                addressLabel: "العنوان:",
+                paymentLabel: "طريقة الدفع:",
+                cashLabel: "نقدًا",
+                knetLabel: "كي نت",
+                totalLabel: "الإجمالي:",
+                orderBtn: "اطلب عبر الواتساب"
+            }
+        };
+
+        function setLanguage(lang) {
+            localStorage.setItem('lang', lang);
+            document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            document.getElementById("lang-toggle").textContent = lang === 'ar' ? 'English' : 'العربية';
+
+            for (let key in translations[lang]) {
+                const el = document.getElementById(key);
+                if (el) el.textContent = translations[lang][key];
+            }
+        }
+
+        function toggleLanguage() {
+            const currentLang = localStorage.getItem('lang') || 'en';
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            setLanguage(newLang);
+        }
+
+        window.onload = () => {
+            const savedLang = localStorage.getItem('lang') || 'en';
+            setLanguage(savedLang);
+            loadCart();
+        };
+
+        // ---- Existing Checkout Logic ----
         function loadCart() {
             let cartData = JSON.parse(localStorage.getItem('cart'));
             let cartContainer = document.getElementById('cart-items');
-            cartContainer.innerHTML = ''; // Clear previous items
+            cartContainer.innerHTML = '';
             let totalPrice = 0;
 
             if (cartData) {
                 cartData.forEach((item, index) => {
-                    // Parse price as a number and ensure it has a default value
                     let price = parseFloat(item.total_price) || 0;
                     totalPrice += price;
 
-    /////////////////////////////////////////////////////////////////////////////////
-
-    const itemHTML = `
-  <div class="summary-item">
-    <img src="${item.image}" alt="${item.image}">
-    <div class="details">
-      <span class="product-name">${item.product_name}</span><br>
-      <span class="product-color">Color: ${item.color}</span><br>
-      <span class="product-measurements">
-        
-        <strong>Top:</strong><br>
-        Chest: ${item.measurements?.chest || '-'}, Waist: ${item.measurements?.waistTop || '-'}<br>
-        Length: ${item.measurements?.lengthTop || '-'}, Shoulder: ${item.measurements?.shoulder || '-'}<br>
-        <strong>Pants:</strong><br>
-        Length: ${item.measurements?.pantsLength || '-'}, Thighs: ${item.measurements?.thighs || '-'}, Hips: ${item.measurements?.hipsPants || '-'}
-      </span><br>
-      <span class="product-notes">Notes: ${item.notes}</span><br>
-      <span class="product-price">Price: ${price.toFixed(2)} KD</span>
-    </div>
-    <img src="./images/deleteicon.jpg" class="delete-icon" onclick="removeItem(${index})" alt="Delete">
-  </div>
-`;
-
-    ///////////المقاسات الي فوقSleeve Length: ${item.measurements?.sleeveLength || '-'}, Sleeve Opening: ${item.measurements?.sleeveOpening || '-'}<br><br>  //////////////////
+                    const itemHTML = `
+                      <div class="summary-item">
+                        <img src="${item.image}" alt="${item.image}">
+                        <div class="details">
+                          <span>${item.product_name}</span><br>
+                          <span>Color: ${item.color}</span><br>
+                          <span>
+                            <strong>Top:</strong><br>
+                            Chest: ${item.measurements?.chest || '-'}, Waist: ${item.measurements?.waistTop || '-'}<br>
+                            Length: ${item.measurements?.lengthTop || '-'}, Shoulder: ${item.measurements?.shoulder || '-'}<br>
+                            <strong>Pants:</strong><br>
+                            Length: ${item.measurements?.pantsLength || '-'}, Thighs: ${item.measurements?.thighs || '-'}, Hips: ${item.measurements?.hipsPants || '-'}
+                          </span><br>
+                          <span>Notes: ${item.notes}</span><br>
+                          <span>Price: ${price.toFixed(2)} KD</span>
+                        </div>
+                        <img src="./images/deleteicon.jpg" class="delete-icon" onclick="removeItem(${index})" alt="Delete">
+                      </div>
+                    `;
                     cartContainer.insertAdjacentHTML('beforeend', itemHTML);
                 });
 
@@ -116,43 +162,37 @@
             }
         }
 
-        // Apply discount logic
-        function applyDiscount()
-        
-         {
+        function applyDiscount() {
             const discountCode = document.getElementById('discount-code').value;
             const discountDisplay = document.getElementById('discount-display');
             let totalPrice = parseFloat(document.getElementById('total-price').textContent.replace(' KD', ''));
 
             if (discountCode === 'MLS10--------') {
-                totalPrice *= 0.9; // Apply 10% discount
+                totalPrice *= 0.9;
                 discountDisplay.textContent = 'Discount Applied: -10%';
-            }else {
+            } else {
                 discountDisplay.textContent = 'Invalid Discount Code';
             }
 
             document.getElementById('total-price').textContent = `${totalPrice.toFixed(2)} KD`;
         }
 
-        // Remove item from cart
         function removeItem(index) {
             let cartData = JSON.parse(localStorage.getItem('cart'));
-            cartData.splice(index, 1); // Remove the item
+            cartData.splice(index, 1);
             localStorage.setItem('cart', JSON.stringify(cartData));
-            loadCart(); // Reload cart items
+            loadCart();
         }
-///////////////////////////////////////////////////////////
-        // Send order via WhatsApp
 
-function sendWhatsAppOrder() {
-    let cartData = JSON.parse(localStorage.getItem('cart'));
-    let name = document.getElementById('name').value;
-    let address = document.getElementById('address').value;
-    let paymentMethod = document.querySelector('input[name="payment-method"]:checked')?.value;
-    let total = document.getElementById('total-price').textContent;
+        function sendWhatsAppOrder() {
+            let cartData = JSON.parse(localStorage.getItem('cart'));
+            let name = document.getElementById('name').value;
+            let address = document.getElementById('address').value;
+            let paymentMethod = document.querySelector('input[name="payment-method"]:checked')?.value;
+            let total = document.getElementById('total-price').textContent;
 
-    let items = cartData.map(item => {
-        return `Product: ${item.product_name}
+            let items = cartData.map(item => {
+                return `Product: ${item.product_name}
 Color: ${item.color}
 Notes: ${item.notes || '-'}
 
@@ -167,17 +207,13 @@ Measurements:
 • Length: ${item.measurements?.pantsLength || '-'}
 • Thighs: ${item.measurements?.thighs || '-'}
 • Hips: ${item.measurements?.hipsPants || '-'}`;
-    }).join('\n\n');
+            }).join('\n\n');
 
-    let message = `Order Summary:\n\n${items}\n\nName: ${name}\nAddress: ${address}\nPayment Method: ${paymentMethod}\nTotal: ${total}`;
+            let message = `Order Summary:\n\n${items}\n\nName: ${name}\nAddress: ${address}\nPayment Method: ${paymentMethod}\nTotal: ${total}`;
 
-    let whatsappLink = `https://wa.me/50552689?text=${encodeURIComponent(message)}`;
-    window.open(whatsappLink, '_blank');
-}
-
-///////////////////////////////////////////////////////////
-        // Initialize cart
-        loadCart();
+            let whatsappLink = `https://wa.me/50552689?text=${encodeURIComponent(message)}`;
+            window.open(whatsappLink, '_blank');
+        }
     </script>
 </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Order</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Playfair Display', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #EAEAE2;
+            color: #333;
+        }
+        header { padding: 20px; text-align: center; }
+        img.logo { width: 150px; }
+        nav {
+            background-color: #D2D1C4;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        nav a {
+            color: #89745E;
+            margin: 0 20px;
+            font-size: 1.2em;
+            text-decoration: none;
+        }
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        h1 { text-align: center; color: #89745E; }
+        label { display: block; margin-top: 15px; font-weight: bold; }
+        input, textarea {
+            width: 95%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-top: 5px;
+        }
+        button {
+            margin-top: 20px;
+            background-color: #89745E;
+            color: #EAEAE2;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1.1em;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #705D4B;
+        }
+        p.note {
+            font-size: 0.9em;
+            color: #555;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <img src="./images/logo.jpg" alt="Your Store Logo" class="logo">
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="scrubs.html">Scrubs</a>
+    <a href="checkout.html">🛒</a> 
+</nav>
+
+<div class="container">
+    <h1>Gift Your Love Ones</h1>
+    <label for="recipient-name">Recipient Name</label>
+    <input type="text" id="recipient-name" placeholder="Enter recipient's name">
+<br><br>
+    <label for="recipient-phone">Recipient Number</label>
+    <input type="text" id="recipient-phone" placeholder="Enter recipient's phone number">
+<br><br>
+
+    <label for="sender-name">Your Name (optional)</label>
+    <input type="text" id="sender-name" placeholder="Enter your name or leave blank for Anonymous">
+<br><br>
+    <p class="note">* The price will be decided after we contact with the recipient for the scrub details .</p>
+    <p class="note">* Keep "Your Name" empty if you want to send the gift anonymously .</p>
+
+    <button onclick="sendGiftOrder()">Send</button>
+</div>
+
+<script>
+function sendGiftOrder() {
+    let recipientName = document.getElementById('recipient-name').value.trim();
+    let recipientPhone = document.getElementById('recipient-phone').value.trim();
+    let senderName = document.getElementById('sender-name').value.trim();
+
+    if (!recipientName || !recipientPhone) {
+        alert('Please fill in recipient name and phone.');
+        return;
+    }
+
+    let fromText = senderName ? `from ${senderName}` : "from Anonymous";
+
+    let message = `🎁 Gift Order 🎁\n\nRecipient Name: ${recipientName}\nPhone Numbr: ${recipientPhone}\n\nThis gift is ${fromText} .`;
+
+    let whatsappLink = `https://wa.me/50552689?text=${encodeURIComponent(message)}`;
+    window.open(whatsappLink, '_blank');
+}
+</script>
+
+</body>
+</html>

@@ -155,8 +155,6 @@ function sendWhatsAppOrder() {
     let items = cartData.map(item => {
         return `Product: ${item.product_name}
 Color: ${item.color}
-Top Size: ${item.top_size || '-'}
-Pants Size: ${item.pants_size || '-'}
 Notes: ${item.notes || '-'}
 
 Measurements:

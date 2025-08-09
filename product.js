@@ -2,7 +2,7 @@
 let cart = [];
 
 // Function to add a product to the cart
-function addToCart(image, productId, productName, color, topSize, pantsSize, notes, price) {
+function addToCart(image, productId, productName, color, notes, price) {
     let quantity = 1; // Default quantity is 1, you can modify it
     let totalPrice = price * quantity;
 
@@ -13,8 +13,6 @@ function addToCart(image, productId, productName, color, topSize, pantsSize, not
         product_name: productName,
         quantity: quantity,
         color: color,
-        top_size: topSize,
-        pants_size: pantsSize,
         notes: notes,
         price_per_item: price,
         total_price: totalPrice

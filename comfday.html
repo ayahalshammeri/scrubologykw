@@ -30,7 +30,7 @@
         .contact-icons img { width: 30px; margin-left: 10px; cursor: pointer; }
         .product-details { width: 90%; max-width: 800px; margin: 40px auto; position: relative; text-align: center; }
         .product-images { position: relative; width: 100%; overflow: hidden; }
-        .product-images .slides { display: flex; transition: transform 0.5s ease-in-out; width: 200%; }
+        .product-images .slides { display: flex; transition: transform 0.5s ease-in-out; width: 400%; }
         .product-images .slides img { width: 100%; overflow: hidden; }
         .product-images .arrows { position: absolute; top: 50%; width: 100%; display: flex; justify-content: space-between; }
         .product-images .arrows div { background: rgba(0, 0, 0, 0.5); color:#fff; padding: 10px; cursor: pointer; }
@@ -106,13 +106,15 @@
         <a href="index.html">Home</a>
         <a href="scrubs.html">Scrubs</a>
         <a href="checkout.html">🛒</a> 
-    </nav>
+        </nav>
 
     <div class="product-details">
         <div class="product-images">
             <div class="slides">
-                <img src="./images/scrub2.jpg" alt="Scrub 2 Image 1">
-                <img src="./images/scrub2-image2.jpg" alt="Scrub 2 Image 2">
+                <img src="./images/scrub1.jpg" alt="Scrub 1 Image 1">
+                <img src="./images/scrub1-image2.jpg" alt="Scrub 1 Image 2">
+                <img src="./images/scrub1-image3.jpg" alt="Scrub 1 Image 3">
+                <img src="./images/scrub1-image4.jpg" alt="Scrub 1 Image 4">
             </div>
             <div class="arrows">
                 <div id="prev">❮</div>
@@ -121,11 +123,11 @@
         </div>
 
         <div class="description">
-            <h1>basic</h1>
-            <p class="price">24.500 KD</p>
+            <h1>comfday</h1>
+            <p class="price">35.000 KD</p>
             <ul style="text-align: left;">
-                <li>Simple two front pockets</li>
-                <li>Straight-legged and comfy pants with two side pockets</li>
+                <li>Soft top</li>
+                <li>Straight-legged and comfy pants</li>
             </ul>
         </div>
 
@@ -273,14 +275,14 @@
             }
 
             const product = {
-                image: "./images/scrub2.jpg",
-                product_name: 'basic',
+                image: "./images/comfday.jpg",
+                product_name: 'comfday',
                 color: color,
                 top_size: "Custom",
                 pants_size: "Custom",
                 measurements: measurements,
                 notes: notes,
-                total_price: 24.500
+                total_price: 32.000
             };
 
             let cart = JSON.parse(localStorage.getItem('cart')) || [];

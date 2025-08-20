@@ -22,24 +22,23 @@
     .optional-label { color: #89745E; font-weight: bold; margin-top: 20px; }
     .note-text { font-size: 0.8em; color: #666; margin-top: 3px; }
     .toggle-section { margin: 10px 0; }
-    .hidden { display: none; }
+    .hidden { display: none !important; }
     .flower-options { display: flex; gap: 15px; flex-wrap: wrap; margin-top: 10px; }
     .flower { border: 2px solid transparent; border-radius: 5px; padding: 5px; text-align: center; width: 120px; cursor: pointer; transition: border 0.3s; }
-    .flower img { max-width: 100%; border-radius: 5px; }
     .flower.selected { border: 2px solid #89745E; }
     .flower-name { font-size: 0.9em; margin-top: 5px; color: #89745E; font-weight: bold; }
-    button { padding: 10px 20px; border: none; background-color: #89745E; color: #fff; cursor: pointer; border-radius: 5px; font-size: 1.1em; margin-top: 20px; }
-    .hidden {
-    display: none !important;
-}
-#customOther {
-    width: 100px;
-    font-size: 0.9em;
-    padding: 5px;
-    margin-top: 5px;
-    border: 1px solid #89745E;
-    border-radius: 5px;
-}
+    button {
+        padding: 15px 20px;
+        border: none;
+        background-color: #89745E;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 1.2em;
+        margin-top: 30px;
+        width: 100%;
+        text-align: center;
+    }
 </style>
 </head>
 <body>
@@ -72,56 +71,28 @@
         <input type="checkbox" id="keepSurprise"> 💌 Keep it as a surprise
     </label>
 
-   
     <!-- Customize Gift Voucher Section -->
-    <p class="optional-label">Optional: Customize the Gift Voucher</p>
+    <p class="optional-label">Optional:</p>
     <div class="toggle-section">
         <input type="checkbox" id="toggleCustomize"> Customize the voucher
     </div>
-    <p class="note-text">*The scrub-jacket will be chosen by the recipient</p>
 
     <div id="customizeSection" class="hidden flower-options">
-        <div class="flower" data-name="1 Scrub">
-            <!-- <img src="./images/option1.jpg" alt="1 Scrub"> -->
-            <div class="flower-name">1 Scrub</div>
-        </div>
-        <div class="flower" data-name="2 Scrubs">
-           <!--<img src="./images/option2.jpg" alt="2 Scrubs"> -->
-            <div class="flower-name">2 Scrubs</div>
-        </div>
-        <div class="flower" data-name="Scrub + Jacket">
-            <!-- <img src="./images/option3.jpg" alt="Scrub + Jacket"> -->
-            <div class="flower-name">Scrub + Jacket</div>
-        </div>
-        <div class="flower" data-name="1 Jacket">
-            <!-- <img src="./images/option4.jpg" alt="1 Jacket"> -->
-            <div class="flower-name">1 Jacket</div>
-        </div>
+        <div class="flower" data-name="1 Scrub"><div class="flower-name">1 Scrub</div></div>
+        <div class="flower" data-name="2 Scrubs"><div class="flower-name">2 Scrubs</div></div>
+        <div class="flower" data-name="Scrub + Jacket"><div class="flower-name">Scrub + Jacket</div></div>
+        <div class="flower" data-name="1 Jacket"><div class="flower-name">1 Jacket</div></div>
         <div class="flower" data-name="Other">
-           <!-- <img src="./images/option5.jpg" alt="Other">-->
             <div class="flower-name">Other</div>
             <input type="text" id="customOther" class="hidden" placeholder="Specify other...">
         </div>
     </div>
 
     <!-- Flower Section -->
-    <p class="optional-label">Optional: Add Flowers</p>
     <div class="toggle-section">
-        <input type="checkbox" id="toggleFlowers"> Add Flowers ( + 5.00 KD )
-    </div>
-    <div id="flowerSection" class="hidden flower-options">
-        <div class="flower" data-name="Red Roses" data-price="5.00 KD">
-            <img src="./images/flower1.jpg" alt="Red Roses">
-            <div class="flower-name">Red Roses - 5.00 KD</div>
-        </div>
-        <div class="flower" data-name="White Tulips" data-price="5.00 KD">
-            <img src="./images/flower2.jpg" alt="White Tulips">
-            <div class="flower-name">White Tulips - 5.00 KD</div>
-        </div>
-        <div class="flower" data-name="Mixed Bouquet" data-price="5.00 KD">
-            <img src="./images/flower3.jpg" alt="Mixed Bouquet">
-            <div class="flower-name">Mixed Bouquet - 5.00 KD</div>
-        </div>
+        <input type="checkbox" id="toggleFlowers"> Add Flowers
+        <p class="note-text">*Flowers will be chosen on WhatsApp</p>
+
     </div>
 
     <button onclick="sendWhatsApp()">Send Gift</button>
@@ -132,23 +103,14 @@
         document.getElementById('customizeSection').classList.toggle('hidden', !this.checked);
     });
 
-    document.getElementById('toggleFlowers').addEventListener('change', function() {
-        document.getElementById('flowerSection').classList.toggle('hidden', !this.checked);
-    });
-
-    document.querySelectorAll('.flower').forEach(flower => {
+    document.querySelectorAll('#customizeSection .flower').forEach(flower => {
         flower.addEventListener('click', function() {
-            if (this.parentElement.id === "customizeSection") {
-                document.querySelectorAll('#customizeSection .flower').forEach(f => f.classList.remove('selected'));
-                this.classList.add('selected');
-                if (this.dataset.name === "Other") {
-                    document.getElementById('customOther').classList.remove('hidden');
-                } else {
-                    document.getElementById('customOther').classList.add('hidden');
-                }
+            document.querySelectorAll('#customizeSection .flower').forEach(f => f.classList.remove('selected'));
+            this.classList.add('selected');
+            if (this.dataset.name === "Other") {
+                document.getElementById('customOther').classList.remove('hidden');
             } else {
-                document.querySelectorAll('#flowerSection .flower').forEach(f => f.classList.remove('selected'));
-                this.classList.add('selected');
+                document.getElementById('customOther').classList.add('hidden');
             }
         });
     });
@@ -156,9 +118,9 @@
     function sendWhatsApp() {
         let recipientName = document.getElementById('recipientName').value || '-';
         let recipientPhone = document.getElementById('recipientPhone').value || '-';
+        let noteRecipient = document.getElementById('noteRecipient').value || '-';
         let yourName = document.getElementById('yourName').value || 'Anonymous';
         let keepSurprise = document.getElementById('keepSurprise').checked ? '💌 Keep it as a surprise' : '';
-        let noteRecipient = document.getElementById('noteRecipient').value || '-';
 
         let customizeText = '';
         if (document.getElementById('toggleCustomize').checked) {
@@ -179,15 +141,12 @@
 
         let flowerText = '';
         if (document.getElementById('toggleFlowers').checked) {
-            let selectedFlower = document.querySelector('#flowerSection .flower.selected');
-            if (selectedFlower) {
-                flowerText = `${selectedFlower.dataset.name} (${selectedFlower.dataset.price})`;
-            }
+            flowerText = 'Price Depends on the Flower Chosen';
         }
 
         let message = `💌 Gift Voucher 💌\nRecipient Name: ${recipientName}\nRecipient Phone Number: ${recipientPhone}\nNote: ${noteRecipient}\nYour Name: ${yourName}\n${keepSurprise}`;
         if (customizeText) message += `\n${customizeText}`;
-        if (flowerText) message += `\nFlowers: ${flowerText}`;
+        if (flowerText) message += `\n Add Flowers: ${flowerText}`;
 
         let whatsappLink = `https://wa.me/50552689?text=${encodeURIComponent(message)}`;
         window.open(whatsappLink, '_blank');

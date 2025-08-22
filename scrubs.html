@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,17 +6,76 @@
     <title>Scrubs</title>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Playfair Display', serif; margin: 0; padding: 0; background-color: #EAEAE2;  color: #333; }
-        header { padding: 20px; text-align: center; }
-        img.logo { width: 150px; }
-        nav { background-color: #D2D1C4; padding: 15px; text-align: center; border-bottom: 1px solid #e5e5e5; position: relative; }
-        nav a { color: #89745E; margin: 0 20px; font-size: 1.2em; text-decoration: none; }
-        .contact-icons { position: absolute; right: 15px; top: 50%; transform: translateY(-50%); }
-        .contact-icons img { width: 30px; margin-left: 10px; cursor: pointer; }
-        .product-grid { width: 70%; margin: 30px auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(115px, 1fr)); gap: 25px; }
-        .product { border: 1px solid #e5e5e5; border-radius: 9px; overflow: hidden; }
-        .product img { width: 100%; height: 100%; cursor: pointer; }
-        .product:hover { box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        body { 
+            font-family: 'Playfair Display', serif; 
+            margin: 0; padding: 0; 
+            background-color: #EAEAE2;  
+            color: #333; 
+        }
+        header { 
+            padding: 20px; 
+            text-align: center; 
+        }
+        img.logo { 
+            width: 150px; 
+        }
+        nav { 
+            background-color: #D2D1C4; 
+            padding: 15px; 
+            text-align: center; 
+            border-bottom: 1px solid #e5e5e5; 
+            position: relative; 
+        }
+        nav a { 
+            color: #89745E; 
+            margin: 0 20px; 
+            font-size: 1.2em; 
+            text-decoration: none; 
+        }
+
+        .section-title {
+            text-align: left;
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #89745E;
+            margin: 30px auto 10px;
+            width: 90%;
+        }
+        .section-line {
+            width: 90%;
+            height: 2px;
+            background-color: #89745E;
+            margin: 0 auto 20px;
+        }
+
+        .product-grid {
+            width: 90%; 
+            margin: 40px auto; 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); /* دايم صورتين يم بعض */
+            gap: 15px;  
+        }
+
+        .product { 
+            border-radius: 9px; 
+            overflow: hidden; 
+            cursor: pointer; 
+        }
+
+        /* هنا كل الصور نفس المقاس من مكان واحد */
+        .product img {
+            width: 100%; 
+            height: 360px;        /* الطول ثابت */
+            object-fit: cover;    /* يقص الزايد بدون تشويه */
+            object-position: top; /* يقص من تحت ويحافظ على فوق */
+            display: block;
+            border-radius: 9px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .product:hover { 
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); 
+        }
     </style>
 </head>
 <body>
@@ -27,24 +85,42 @@
     <nav>
         <a href="index.html">Home</a>
         <a href="scrubs.html">Scrubs</a>
-     <!--   <a href="accessories.html">Accessories</a>-->
         <a href="checkout.html">🛒</a> 
     </nav>
+<!-- llllllllllllllllllllllll
+    <!- Gift Section ->
+    <div class="section-title">Gift</div>
+    <div class="section-line"></div>
     <div class="product-grid">
-        <!-- <div class="product"><img src="./images/gift.jpg" alt="Gift" onclick="window.location.href='gift.html'"></div> -->
-
+        <div class="product"><img src="./images/gift.jpg" alt="Gift" onclick="window.location.href='gift.html'"></div>
+    </div>
+-->
+    <!-- Scrubs Section -->
+    <div class="section-title">Scrubs</div>
+    <div class="section-line"></div>
+    <div class="product-grid">
         <div class="product"><img src="./images/scrub1.jpg" alt="Scrub 1" onclick="window.location.href='scrub1.html'"></div>
         <div class="product"><img src="./images/scrub2.jpg" alt="Scrub 2" onclick="window.location.href='scrub2.html'"></div>
         <div class="product"><img src="./images/scrub3.jpg" alt="Scrub 3" onclick="window.location.href='scrub3.html'"></div>
         <div class="product"><img src="./images/scrub4.jpg" alt="Scrub 4" onclick="window.location.href='scrub4.html'"></div>
-       
-       <!-- <div class="product"><img src="./images/scrub5.jpg" alt="Scrub 5" onclick="window.location.href='scrub5.html'"></div> -->
-       
-        <div class="product"><img src="./images/jacket1.jpg" alt="Jacket 1" onclick="window.location.href='jacket1.html'"></div>
-     
-        <!--   <div class="product"><img src="./images/comfday.jpg" alt="comfday" onclick="window.location.href='comfday.html'"></div> -->
+    </div>
 
-        </div>
+    <!-- Jackets Section -->
+    <div class="section-title">Jackets</div>
+    <div class="section-line"></div>
+    <div class="product-grid">
+        <div class="product"><img src="./images/jacket1.jpg" alt="Jacket 1" onclick="window.location.href='jacket1.html'"></div>
+    </div>
+
+    <!-- llllllllllllllllllllllll
+    <!- Packages Section ->
+    <div class="section-title">Packages</div>
+    <div class="section-line"></div>
+    <div class="product-grid">
+        <div class="product"><img src="./images/package1.jpg" alt="Package 1" onclick="window.location.href='package1.html'"></div>
+        <div class="product"><img src="./images/package2.jpg" alt="Package 2" onclick="window.location.href='package2.html'"></div>
+        <div class="product"><img src="./images/package3.jpg" alt="Package 3" onclick="window.location.href='package3.html'"></div>
+    </div>
+-->
 </body>
 </html>
-

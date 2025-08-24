@@ -52,8 +52,9 @@
             width: 90%; 
             margin: 40px auto; 
             display: grid; 
-            grid-template-columns: repeat(2, 1fr); /* دايم صورتين يم بعض */
-            gap: 15px;  
+            grid-template-columns: repeat(2, auto); /* دايم صورتين يم بعض */
+            gap: 15px;
+            justify-content: start;
         }
 
         .product { 
@@ -64,8 +65,8 @@
 
         /* هنا كل الصور نفس المقاس من مكان واحد */
         .product img {
-            width: 100%; 
-            height: 360px;        /* الطول ثابت */
+            width: 160px; 
+            height: 240px;        /* الطول ثابت */
             object-fit: cover;    /* يقص الزايد بدون تشويه */
             object-position: top; /* يقص من تحت ويحافظ على فوق */
             display: block;

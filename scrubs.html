@@ -48,13 +48,19 @@
             margin: 0 auto 20px;
         }
 
+        /* الافتراضي: صورتين يم بعض بالنص */
         .product-grid {
             width: 90%; 
             margin: 40px auto; 
             display: grid; 
-            grid-template-columns: repeat(2, auto); /* دايم صورتين يم بعض */
-            gap: 15px;
+            grid-template-columns: repeat(2, auto); 
+            gap: 15px;  
             justify-content: center;
+        }
+
+        /* الأقسام اللي فيها صورة وحده */
+        .product-grid.single {
+            justify-content: start;
         }
 
         .product { 
@@ -63,10 +69,10 @@
             cursor: pointer; 
         }
 
-        /* هنا كل الصور نفس المقاس من مكان واحد */
+        /* حجم موحد للصور */
         .product img {
-            width: 160px; 
-            height: 240px;        /* الطول ثابت */
+            width: 100%; 
+            height: 360px;        /* الطول ثابت */
             object-fit: cover;    /* يقص الزايد بدون تشويه */
             object-position: top; /* يقص من تحت ويحافظ على فوق */
             display: block;
@@ -84,19 +90,17 @@
         <img src="./images/logo.jpg" alt="Your Store Logo" class="logo">
     </header>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="scrubs.html">Scrubs</a>
+        <a href="index.html">HOME</a>
+        <a href="scrubs.html">SHOP</a>
         <a href="checkout.html">🛒</a> 
     </nav>
 
-  <!--
-     <!- Gift Section ->
+    <!-- Gift Section -->
     <div class="section-title">Gift</div>
     <div class="section-line"></div>
-    <div class="product-grid">
+    <div class="product-grid single">
         <div class="product"><img src="./images/gift.jpg" alt="Gift" onclick="window.location.href='gift.html'"></div>
     </div>
--->
     <!-- Scrubs Section -->
     <div class="section-title">Scrubs</div>
     <div class="section-line"></div>
@@ -110,17 +114,15 @@
     <!-- Jackets Section -->
     <div class="section-title">Jackets</div>
     <div class="section-line"></div>
-    <div class="product-grid">
+    <div class="product-grid single">
         <div class="product"><img src="./images/jacket1.jpg" alt="Jacket 1" onclick="window.location.href='jacket1.html'"></div>
     </div>
 
-   <!--
-       <!- Package Section ->                         
-    <div class="section-title">Packages</div>
+    <!-- Packages Section -->
+   <!--<div class="section-title">Packages</div>
     <div class="section-line"></div>
     <div class="product-grid">
-        <div class="product"><img src="./images/scrub1-image4.jpg" alt="Package 1" onclick="window.location.href='package1.html'"></div>
-    </div>
--->
+        <div class="product"><img src="./images/package1.jpg" alt="Package 1" onclick="window.location.href='package1.html'"></div>
+    </div>-->
 </body>
 </html>

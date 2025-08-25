@@ -52,9 +52,10 @@
             width: 90%; 
             margin: 20px auto; 
             display: grid; 
-            grid-template-columns: repeat(2, auto); /* بس صورتين يم بعض */
+            grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); /* بس صورتين يم بعض */
+            gap: 15px;
             justify-content: start;
-            gap: 15px;  
+
         }
 
         .product { 
